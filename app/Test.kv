@@ -1,0 +1,50 @@
+MDFloatLayout:
+    
+    Image:
+        source: "image/moon_1.jpg"
+        allow_stretch: True  # Permite esticar a imagem
+        keep_ratio: False  # Não mantém a proporção original
+        #size_hint: None, None  
+        #width: '390dp'
+        #height: '844dp'
+        #pos_hint: {"center_x":.5, "center_y":.5}
+
+
+    MDLabel:
+        text: "A s t r o n o m y"
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1
+        font_size:"35sp"
+        pos_hint: {"center_x": .5, "center_y": .30} 
+        halign : "center"
+
+    MDLabel:
+        text: "make  login  or  register"
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1
+        font_size:"15sp"
+        pos_hint: {"center_x": .5, "center_y": .25}
+        halign : "center"
+
+    MDRoundFlatButton:
+        text: "LOGIN"
+        size_hint: 0.4, 0.0
+        text_color: "white"
+        md_bg_color: "424247"
+        font_size:"25sp"
+        pos_hint: {"center_x": .5, "center_y": .17}
+        line_color_normal: 1, 0, 0, 1
+        line_color_down: 0, 1, 0, 1
+
+    MDRoundFlatButton:
+        text: "S I G N   U P"
+        size_hint: 0.4, 0.0
+        text_color: "white"
+        md_bg_color: "424247"
+        font_size:"25sp"
+        pos_hint: {"center_x": .5, "center_y": .1}
+        halign : "center"
+
+<NewScreen>:
+    Label:
+        text: "Nova Tela de Login"
