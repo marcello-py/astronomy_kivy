@@ -1,50 +1,95 @@
-MDFloatLayout:
-    
-    Image:
-        source: "image/moon_1.jpg"
-        allow_stretch: True  # Permite esticar a imagem
-        keep_ratio: False  # Não mantém a proporção original
-        #size_hint: None, None  
-        #width: '390dp'
-        #height: '844dp'
-        #pos_hint: {"center_x":.5, "center_y":.5}
+ScreenManager:
+    FirstScreen:
+    NewScreen:
 
+<FirstScreen>:
+    name: 'login'
+    MDFloatLayout:        
+        Image:
+            source: "image/moon_1.jpg"
+            allow_stretch: True
+            keep_ratio: False
 
-    MDLabel:
-        text: "A s t r o n o m y"
-        theme_text_color: "Custom"
-        text_color: 1, 1, 1
-        font_size:"35sp"
-        pos_hint: {"center_x": .5, "center_y": .30} 
-        halign : "center"
+        MDLabel:
+            text: "A s t r o n o m y"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "35sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
+            halign: "center"
 
-    MDLabel:
-        text: "make  login  or  register"
-        theme_text_color: "Custom"
-        text_color: 1, 1, 1
-        font_size:"15sp"
-        pos_hint: {"center_x": .5, "center_y": .25}
-        halign : "center"
+        MDLabel:
+            text: "make  login  or  register"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "15sp"
+            pos_hint: {"center_x": .5, "center_y": .25}
+            halign: "center"
 
-    MDRoundFlatButton:
-        text: "LOGIN"
-        size_hint: 0.4, 0.0
-        text_color: "white"
-        md_bg_color: "424247"
-        font_size:"25sp"
-        pos_hint: {"center_x": .5, "center_y": .17}
-        line_color_normal: 1, 0, 0, 1
-        line_color_down: 0, 1, 0, 1
+        MDRoundFlatButton:
+            text: "LOGIN"
+            size_hint: 0.4, 0.0
+            text_color: "white"
+            md_bg_color: "424247"
+            font_size: "25sp"
+            pos_hint: {"center_x": .5, "center_y": .17}
+            line_color_normal: 1, 0, 0, 1
+            line_color_down: 0, 1, 0, 1
+            on_press: root.manager.current = 'register'
 
-    MDRoundFlatButton:
-        text: "S I G N   U P"
-        size_hint: 0.4, 0.0
-        text_color: "white"
-        md_bg_color: "424247"
-        font_size:"25sp"
-        pos_hint: {"center_x": .5, "center_y": .1}
-        halign : "center"
+        MDRoundFlatButton:
+            text: "S I G N   U P"
+            size_hint: 0.4, 0.0
+            text_color: "white"
+            md_bg_color: "424247"
+            font_size: "25sp"
+            pos_hint: {"center_x": .5, "center_y": .1}
+            halign: "center"
 
 <NewScreen>:
-    Label:
-        text: "Nova Tela de Login"
+    name: 'register'
+    MDFloatLayout:
+        Image:
+            source: "image/moon_2.jpg"
+            allow_stretch: True
+            keep_ratio: False
+        
+        MDLabel:
+            text: "Welcome Back"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .50} 
+            halign: "center"
+
+        MDRoundFlatButton:
+            text: "back"
+            size_hint: 0.4, 0.0
+            text_color: "white"
+            md_bg_color: "424247"
+            font_size: "25sp"
+            pos_hint: {"center_x": .5, "center_y": .1}
+            halign: "center"
+            on_press: root.manager.current = 'login'
+
+        TextInput:
+            text: ""
+            size_hint_y: 0.03
+            size_hint_x: 0.40
+            cursor_width: "1sp"
+            font_size: "17sp"
+            pos_hint: {"center_x": .5, "center_y": .2}
+            halign: "center"
+
+        TextInput:           
+            text: ""
+            size_hint_y: 0.03
+            size_hint_x: 0.40
+            cursor_width: "1sp"
+            font_size: "17sp"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            halign: "center"
+
+
+
+            
