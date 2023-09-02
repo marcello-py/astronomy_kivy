@@ -49,47 +49,55 @@ ScreenManager:
 <NewScreen>:
     name: 'register'
     MDFloatLayout:
+#        md_bg_color: "2B3D3C"
         Image:
             source: "image/moon_2.jpg"
             allow_stretch: True
             keep_ratio: False
-        
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "40sp"     
+            pos_hint: {"center_x": .1, "center_y": .1}
+            on_press: root.manager.current = 'login'
+
         MDLabel:
-            text: "Welcome Back"
+            text: "Register"
+            theme_text_color: "Custom"
+            text_color: 'black'
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .90} 
+            halign: "center"
+
+        MDLabel:
+            text: "Username"
             theme_text_color: "Custom"
             text_color: 1, 1, 1
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .50} 
             halign: "center"
 
-        MDRoundFlatButton:
-            text: "back"
-            size_hint: 0.4, 0.0
-            text_color: "white"
-            md_bg_color: "424247"
-            font_size: "25sp"
-            pos_hint: {"center_x": .5, "center_y": .1}
+        MDTextField:
+            hint_text: "Username"
+            size_hint_y: 0.03
+            size_hint_x: 0.40
+            pos_hint: {"center_x": .5, "center_y": .4}
+
+ 
+        MDLabel:
+            text: "Password"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
-            on_press: root.manager.current = 'login'
 
         TextInput:
             text: ""
             size_hint_y: 0.03
             size_hint_x: 0.40
-            cursor_width: "1sp"
             font_size: "17sp"
             pos_hint: {"center_x": .5, "center_y": .2}
-            halign: "center"
-
-        TextInput:           
-            text: ""
-            size_hint_y: 0.03
-            size_hint_x: 0.40
-            cursor_width: "1sp"
-            font_size: "17sp"
-            pos_hint: {"center_x": .5, "center_y": .3}
-            halign: "center"
-
-
+            text_color: 1, 1, 1
 
             
