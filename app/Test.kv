@@ -1,6 +1,7 @@
 ScreenManager:
     FirstScreen:
-    NewScreen:
+    LoginScreen:
+    Cadastro:
 
 <FirstScreen>:
     name: 'login'
@@ -17,6 +18,7 @@ ScreenManager:
             font_size: "35sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
+            font_name: "Poppin-Regular.ttf"            
 
         MDLabel:
             text: "make  login  or  register"
@@ -25,6 +27,7 @@ ScreenManager:
             font_size: "15sp"
             pos_hint: {"center_x": .5, "center_y": .25}
             halign: "center"
+            font_name: "Poppin-Regular.ttf"            
 
         MDRoundFlatButton:
             text: "LOGIN"
@@ -35,7 +38,8 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .17}
             line_color_normal: 1, 0, 0, 1
             line_color_down: 0, 1, 0, 1
-            on_press: root.manager.current = 'register'
+            on_press: root.manager.current = 'acess'
+            font_name: "Poppin-Regular.ttf"
 
         MDRoundFlatButton:
             text: "S I G N   U P"
@@ -45,9 +49,12 @@ ScreenManager:
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .1}
             halign: "center"
+            on_press: root.manager.current = 'tela'
+            font_name: "Poppin-Regular.ttf"
 
-<NewScreen>:
-    name: 'register'
+
+<LoginScreen>:
+    name: 'acess'
     MDFloatLayout:
 #        md_bg_color: "2B3D3C"
         Image:
@@ -60,6 +67,7 @@ ScreenManager:
             icon_size: "40sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
             on_press: root.manager.current = 'login'
+            md_bg_color: 'e9f5f2'
 
         MDLabel:
             text: "Register"
@@ -68,6 +76,7 @@ ScreenManager:
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .90} 
             halign: "center"
+            font_name: "Poppin-Regular.ttf"            
 
         MDLabel:
             text: "Username"
@@ -76,13 +85,15 @@ ScreenManager:
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .50} 
             halign: "center"
+            font_name: "Poppin-Regular.ttf"
 
         MDTextField:
-            hint_text: "Username"
-            size_hint_y: 0.03
-            size_hint_x: 0.40
-            pos_hint: {"center_x": .5, "center_y": .4}
-
+            hint_text: "Name"
+            mode: "round"
+            size_hint_x: .4
+            size_hint_y: None
+            max_text_length: 15
+            pos_hint: {"center_x": .5, "center_y": .40}
  
         MDLabel:
             text: "Password"
@@ -91,13 +102,97 @@ ScreenManager:
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
+            font_name: "Poppin-Regular.ttf"
 
-        TextInput:
-            text: ""
-            size_hint_y: 0.03
-            size_hint_x: 0.40
-            font_size: "17sp"
-            pos_hint: {"center_x": .5, "center_y": .2}
-            text_color: 1, 1, 1
+        MDTextField:
+            hint_text: "Password"
+            mode: "round"
+            size_hint_x: .4
+            max_text_length: 10
+            size_hint_y: None
+            pos_hint: {"center_x": .5, "center_y": .25}
 
+
+<Cadastro>:
+    name: 'tela'
+    MDFloatLayout:        
+        Image:
+            source: "image/moon_3.jpg"
+            allow_stretch: True
+            keep_ratio: False
             
+        MDLabel:
+            text: "Cadastro"
+            theme_text_color: "Custom"
+            text_color: 'white'
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .90} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "40sp"     
+            pos_hint: {"center_x": .1, "center_y": .1}
+            on_press: root.manager.current = 'login'
+            md_bg_color: 'e9f5f2'
+
+
+        MDLabel:
+            text: "Name"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .70} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDTextField:
+            hint_text: "Name"
+            mode: "round"
+            size_hint_x: .4
+            size_hint_y: None
+            max_text_length: 15
+            pos_hint: {"center_x": .5, "center_y": .60}
+
+
+        MDLabel:
+            text: "CPF"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .50} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDTextField:
+            hint_text: "CPF"
+            mode: "round"
+            size_hint_x: .4
+            max_text_length: 11
+            size_hint_y: None
+            pos_hint: {"center_x": .5, "center_y": .40} 
+
+        MDLabel:
+            text: "Birth"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDTextField:
+            hint_text: "Birth"
+            mode: "round"
+            size_hint_x: .4
+            max_text_length: 10
+            size_hint_y: None
+            pos_hint: {"center_x": .5, "center_y": .20}
+
+        MDRoundFlatButton:
+            text: "Register"
+            font_name: "Poppin-Regular.ttf"
+            text_color: "white"
+            size_hint_x: .4
+            pos_hint: {"center_x": .5, "center_y": .10}

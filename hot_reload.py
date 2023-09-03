@@ -7,20 +7,26 @@ class FirstScreen(Screen):
    pass
 
 
-class NewScreen(Screen):
+class LoginScreen(Screen):
+    pass
+
+
+class Cadastro(Screen):
     pass
 
 sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
-sm.add_widget(NewScreen(name = 'register'))
+sm.add_widget(LoginScreen(name = 'acess'))
 sm.add_widget(FirstScreen(name = 'login'))
+sm.add_widget(Cadastro(name = 'tela'))
 
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
     DEBUG = True
 
     def build_app(self):
+        self.theme_cls.primary_palette = 'Gray'
         return Builder.load_file('app/Test.kv')
     
 
