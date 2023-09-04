@@ -11,7 +11,10 @@ class LoginScreen(Screen):
     pass
 
 
-class Cadastro(Screen):
+class Register(Screen):
+    pass
+
+class CreatedLogin(Screen):
     pass
 
 sm = ScreenManager()
@@ -19,7 +22,8 @@ sm = ScreenManager()
 # Adicionando as telas ao ScreenManager
 sm.add_widget(LoginScreen(name = 'acess'))
 sm.add_widget(FirstScreen(name = 'login'))
-sm.add_widget(Cadastro(name = 'cadastro'))
+sm.add_widget(Register(name = 'cadastro'))
+sm.add_widget(Register(name = 'user'))
 
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']

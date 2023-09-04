@@ -1,7 +1,8 @@
 ScreenManager:
     FirstScreen:
     LoginScreen:
-    Cadastro:
+    Register:
+    CreatedLogin:
 
 <FirstScreen>:
     name: 'login'
@@ -71,7 +72,7 @@ ScreenManager:
         MDLabel:
             text: "Register"
             theme_text_color: "Custom"
-            text_color: 'black'
+            text_color: 'white'
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .90} 
             halign: "center"
@@ -119,7 +120,7 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .10}
             md_bg_color: "424247"
 
-<Cadastro>:
+<Register>:
     name: 'cadastro'
     MDFloatLayout:        
         Image:
@@ -202,3 +203,37 @@ ScreenManager:
             size_hint_x: .4
             pos_hint: {"center_x": .5, "center_y": .10}
             md_bg_color: "424247"
+            on_press: root.manager.current = 'user'
+
+<CreatedLogin>:
+    name: 'user'
+    MDFloatLayout:        
+        Image:
+            source: "image/moon_4.jpg"
+            allow_stretch: True
+            keep_ratio: False
+
+        MDLabel:
+            text: "A s t r o n o m y"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "35sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "40sp"     
+            pos_hint: {"center_x": .1, "center_y": .1}
+            on_press: root.manager.current = 'cadastro'
+            md_bg_color: 'e9f5f2'
+
+        MDLabel:
+            text: "Account Created!"
+            theme_text_color: "Custom"
+            text_color: 'white'
+            font_size: "40sp"
+            pos_hint: {"center_x": .5, "center_y": .90} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
