@@ -2,7 +2,7 @@ from kivymd.tools.hotreload.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager,Screen
 from kivy.core.window import Window
-
+from database import Database
 
 
 class FirstScreen(Screen):
