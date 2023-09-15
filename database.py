@@ -16,3 +16,15 @@ class Database:
                             )
                             ''')
         self.conn.commit()
+
+    def insert_user(self, username, password):
+        self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
+        self.conn.commit()
+
+    def check_credentials(self, username, password):
+        self.cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
+        user = self.cursor.fetchone()
+        if user:
+            return True
+        else:
+            return False
