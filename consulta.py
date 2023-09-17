@@ -2,7 +2,7 @@ import database
 
 import sqlite3
 
-db_name = 'user_database.db'  # Substitua pelo nome do seu arquivo de banco de dados
+db_name = 'user_database.db'  #  nome do banco de dados
 
 try:
     conn = sqlite3.connect(db_name)
