@@ -28,7 +28,7 @@ class Database:
 
 
     def drop_table(self):
-        self.cursor.execute('DELETE FROM users WHERE id = 2')
+        self.cursor.execute('DELETE FROM users WHERE id = 1')
         self.conn.commit()
 
 
@@ -54,7 +54,7 @@ class Database:
 db = Database('astronomy.db')
 
 # Inserir um usuário com valores fictícios
-#db.insert_user('marcelonunesmeira@gmail.com', '123')
+db.insert_user('marcelonunesmeira@gmail.com', '123')
 
 # Verificar as credenciais corretas
 if db.check_credentials('marcelonunesmeira@gmail.com', '123'):
@@ -67,7 +67,6 @@ db.view_all_users()
 
 # Deletar dados especificos
 db.drop_table()
-
 
 # Fechar a conexão com o banco de dados
 db.conn.close()
