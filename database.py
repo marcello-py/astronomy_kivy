@@ -20,13 +20,7 @@ class Database:
         # Use marcadores de posição ? e passe os valores como parâmetros
         self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
         self.conn.commit()
-
-    def insert_user(self, username, password):
-        # Use marcadores de posição ? e passe os valores como parâmetros
-        self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
-        self.conn.commit()
-
-
+ 
     def drop_table(self):
         self.cursor.execute('DELETE FROM users WHERE id = 1')
         self.conn.commit()
@@ -35,7 +29,7 @@ class Database:
     def check_credentials(self, username, password):
         # Use marcadores de posição ? e passe os valores como parâmetros
         self.cursor.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password))
-        user = self.cursor.fetchone()
+        user = self.cursor.fetchone() 
         if user:
             return True
         else:
@@ -66,7 +60,7 @@ else:
 db.view_all_users()
 
 # Deletar dados especificos
-db.drop_table()
+#db.drop_table()
 
 # Fechar a conexão com o banco de dados
 db.conn.close()

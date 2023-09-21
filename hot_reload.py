@@ -14,9 +14,9 @@ class LoginScreen(Screen):
 
 
 class Register(Screen):
-    def register_user(self):
-        username = self.ids.username_input.text
-        password = self.ids.password_input.text
+    def register_user(self, username, password):
+        username = self.ids.username_input
+        password = self.ids.password_input
 
 
         # Criar uma instância da classe Database

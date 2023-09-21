@@ -156,7 +156,7 @@ ScreenManager:
             font_name: "Poppin-Regular.ttf"
 
         MDTextField:
-            id: name_input
+            id: username_input
             hint_text: "Name"
             mode: "round"
             size_hint_x: .4
@@ -189,7 +189,7 @@ ScreenManager:
             size_hint_x: .4
             pos_hint: {"center_x": .5, "center_y": .10}
             md_bg_color: "424247"
-            on_press: root.register_user(username_input.text, password_input.text) 
+            on_press: root.register_user(username_input, password_input) 
 
 <CreatedLogin>:
     name: 'user'
