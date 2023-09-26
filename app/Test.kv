@@ -51,7 +51,7 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .1}
             halign: "center"
             on_press: root.manager.current = 'cadastro'
-            font_name: "Poppin-Regular.ttf"
+            font_name: "Poppin-Regular.ttf" 
 
 <LoginScreen>:
     name: 'acess'
@@ -189,7 +189,7 @@ ScreenManager:
             size_hint_x: .4
             pos_hint: {"center_x": .5, "center_y": .10}
             md_bg_color: "424247"
-            on_press: root.register_user(username_input, password_input) 
+            on_press: root.register_user()
 
 <CreatedLogin>:
     name: 'user'
@@ -198,7 +198,7 @@ ScreenManager:
             source: "image/moon_4.jpg"
             allow_stretch: True
             keep_ratio: False
-
+ 
         MDLabel:
             text: "A s t r o n o m y"
             theme_text_color: "Custom"

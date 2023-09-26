@@ -14,10 +14,9 @@ class LoginScreen(Screen):
 
 
 class Register(Screen):
-    def register_user(self, username, password):
-        username = self.ids.username_input
-        password = self.ids.password_input
-
+    def register_user(self):
+        username = self.ids.username_input.text
+        password = self.ids.password_input.text
 
         # Criar uma instância da classe Database
         db = Database('astronomy.db')
@@ -30,7 +29,7 @@ class Register(Screen):
 
         # Redirecionar para a tela de usuário criado
         self.manager.current = 'user' 
-
+ 
 class CreatedLogin(Screen):
     pass
 
@@ -38,7 +37,7 @@ sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
 sm.add_widget(LoginScreen(name = 'acess'))
-sm.add_widget(FirstScreen(name = 'login'))
+sm.add_widget(FirstScreen(name = 'login')) 
 sm.add_widget(Register(name = 'cadastro'))
 sm.add_widget(Register(name = 'user')) 
  

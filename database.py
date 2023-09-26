@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class Database:
     def __init__(self, db_astronomy):
         self.conn = sqlite3.connect(db_astronomy)
@@ -17,12 +18,11 @@ class Database:
         self.conn.commit()
 
     def insert_user(self, username, password):
-        # Use marcadores de posição ? e passe os valores como parâmetros
         self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
         self.conn.commit()
- 
+                      
     def drop_table(self):
-        self.cursor.execute('DELETE FROM users WHERE id = 1')
+        self.cursor.execute('DELETE FROM users WHERE id = 7')
         self.conn.commit()
 
 
@@ -48,7 +48,7 @@ class Database:
 db = Database('astronomy.db')
 
 # Inserir um usuário com valores fictícios
-db.insert_user('marcelonunesmeira@gmail.com', '123')
+#db.insert_user('marcelonunesmeira@gmail.com', '123')
 
 # Verificar as credenciais corretas
 if db.check_credentials('marcelonunesmeira@gmail.com', '123'):
@@ -60,7 +60,7 @@ else:
 db.view_all_users()
 
 # Deletar dados especificos
-#db.drop_table()
+db.drop_table()
 
 # Fechar a conexão com o banco de dados
 db.conn.close()
