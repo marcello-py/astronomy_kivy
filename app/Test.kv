@@ -3,6 +3,7 @@ ScreenManager:
     LoginScreen:
     Register:
     CreatedLogin:
+    LoginSucess:
 
 <FirstScreen>:
     name: 'login'
@@ -215,7 +216,7 @@ ScreenManager:
             icon: "chevron-left"     
             icon_size: "30sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'cadastro'
+            on_press: root.manager.current = 'login'
             md_bg_color: 'e9f5f2'
 
         MDLabel:
@@ -226,5 +227,40 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .90} 
             halign: "center"
             font_name: "Poppin-Regular.ttf"
+
+
+<LoginSucess>:
+    name: 'sucess'
+    MDFloatLayout:        
+        Image:
+            source: "image/crow.jpg"
+            allow_stretch: True
+            keep_ratio: False
+ 
+        MDLabel:
+            text: "A s t r o n o m y"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1
+            font_size: "35sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            pos_hint: {"center_x": .1, "center_y": .1}
+            on_press: root.manager.current = 'cadastro'
+            md_bg_color: 'e9f5f2'
+
+        MDLabel:
+            text: "Login Sucess!"
+            theme_text_color: "Custom"
+            text_color: 'white'
+            font_size: "30sp"
+            pos_hint: {"center_x": .5, "center_y": .90} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"
+
 
     

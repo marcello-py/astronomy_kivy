@@ -14,12 +14,12 @@ class LoginScreen(Screen):
         # Coletar os valores de entrada
         username = self.ids.username_input.text
         password = self.ids.password_input.text
-        
+
         # Criar uma instância da classe Database
         db = Database('astronomy.db')
         user = db.check_credentials(username, password)
         if user is not None:                                                          
-            self.manager.current = 'user' 
+            self.manager.current = 'sucess' 
                                                       
 
 class Register(Screen):
@@ -41,6 +41,9 @@ class Register(Screen):
         self.manager.current = 'user' 
  
 class CreatedLogin(Screen):
+    pass
+
+class LoginSucess(Screen):
     pass
 
 sm = ScreenManager()
