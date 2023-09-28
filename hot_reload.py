@@ -10,11 +10,21 @@ class FirstScreen(Screen):
 
 
 class LoginScreen(Screen):
-    pass
-
+    def login_user(self):
+        # Coletar os valores de entrada
+        username = self.ids.username_input.text
+        password = self.ids.password_input.text
+        
+        # Criar uma instância da classe Database
+        db = Database('astronomy.db')
+        user = db.check_credentials(username, password)
+        if user is not None:                                                          
+            self.manager.current = 'user' 
+                                                      
 
 class Register(Screen):
     def register_user(self):
+        # Coletar os valores de entrada
         username = self.ids.username_input.text
         password = self.ids.password_input.text
 
@@ -23,7 +33,7 @@ class Register(Screen):
 
         # Inserir o usuário no banco de dados
         db.insert_user(username, password) 
-
+        
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
