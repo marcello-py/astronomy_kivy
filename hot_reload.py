@@ -15,12 +15,14 @@ class LoginScreen(Screen):
         username = self.ids.username_input.text
         password = self.ids.password_input.text
 
-        # Criar uma instância da classe Database
         db = Database('astronomy.db')
-        user = db.check_credentials(username, password)
-        if user is not None:                                                          
-            self.manager.current = 'sucess' 
-                                                      
+        if db.check_credentials(username, password):
+            self.manager.current = 'sucess'
+        else:
+            print('Credenciais inválidas')
+        print(username)
+        print(password)
+        db.conn.close()
 
 class Register(Screen):
     def register_user(self):
@@ -34,12 +36,11 @@ class Register(Screen):
         # Inserir o usuário no banco de dados
         db.insert_user(username, password) 
         
+        # Redirecionar para a tela de usuário criado
+        self.manager.current = 'sucess' 
+
         # Fechar a conexão com o banco de dados
         db.conn.close()
-
-        # Redirecionar para a tela de usuário criado
-        self.manager.current = 'user' 
- 
 class CreatedLogin(Screen):
     pass
 
@@ -49,10 +50,11 @@ class LoginSucess(Screen):
 sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
-sm.add_widget(LoginScreen(name = 'acess'))
-sm.add_widget(FirstScreen(name = 'login')) 
+sm.add_widget(FirstScreen(name = 'login'))
+sm.add_widget(LoginScreen(name = 'acess')) 
 sm.add_widget(Register(name = 'cadastro'))
-sm.add_widget(Register(name = 'user')) 
+sm.add_widget(CreatedLogin(name = 'user')) 
+sm.add_widget(LoginSucess(name = 'sucess')) 
  
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
