@@ -67,5 +67,5 @@ class Test(MDApp):
         return Builder.load_file('app/Test.kv')
 
 if __name__ == '__main__':
-    Window.size = (600, 1000)
+    Window.size = (640, 960)
     Test().run()

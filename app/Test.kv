@@ -1,12 +1,12 @@
 ScreenManager:
     FirstScreen:
     LoginScreen:
-    Register:
-    CreatedLogin:
-    LoginSucess:
+    RegisterScreen:
+    CreatedScreen:
+    ResultScreen:
 
 <FirstScreen>:
-    name: 'login'
+    name: 'init'
     MDFloatLayout:        
         Image:
             source: "image/moon_1.jpg"
@@ -40,7 +40,7 @@ ScreenManager:
             pos_hint: {"center_x": .5, "center_y": .17}
             line_color_normal: 1, 0, 0, 1
             line_color_down: 0, 1, 0, 1
-            on_press: root.manager.current = 'acess'
+            on_press: root.manager.current = 'login'
             font_name: "Poppin-Regular.ttf"
 
         MDRoundFlatButton:
@@ -51,11 +51,11 @@ ScreenManager:
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .1}
             halign: "center"
-            on_press: root.manager.current = 'cadastro'
+            on_press: root.manager.current = 'register'
             font_name: "Poppin-Regular.ttf" 
 
 <LoginScreen>:
-    name: 'acess'
+    name: 'login'
     MDFloatLayout:
         Image:
             source: "image/moon_2.jpg"
@@ -66,7 +66,7 @@ ScreenManager:
             icon: "chevron-left"     
             icon_size: "30sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'login'
+            on_press: root.manager.current = 'init'
             md_bg_color: 'e9f5f2'
 
         MDLabel:
@@ -124,8 +124,8 @@ ScreenManager:
             md_bg_color: "424247"
             on_press: root.login_user()
 
-<Register>:
-    name: 'cadastro'
+<RegisterScreen>:
+    name: 'register'
     MDFloatLayout:        
         Image:
             source: "image/moon_3.jpg"
@@ -145,7 +145,7 @@ ScreenManager:
             icon: "chevron-left"     
             icon_size: "30sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'login'
+            on_press: root.manager.current = 'init'
             md_bg_color: 'e9f5f2'
 
 
@@ -194,8 +194,8 @@ ScreenManager:
             md_bg_color: "424247"
             on_press: root.register_user()
 
-<CreatedLogin>:
-    name: 'user'
+<CreatedScreen>:
+    name: 'created'
     MDFloatLayout:        
         Image:
             source: "image/moon_4.jpg"
@@ -215,7 +215,7 @@ ScreenManager:
             icon: "chevron-left"     
             icon_size: "30sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'login'
+            on_press: root.manager.current = 'init'
             md_bg_color: 'e9f5f2'
 
         MDLabel:
@@ -228,8 +228,8 @@ ScreenManager:
             font_name: "Poppin-Regular.ttf"
 
 
-<LoginSucess>:
-    name: 'sucess'
+<ResultScreen>:
+    name: 'suced'
     MDFloatLayout:         
         Image: 
             source: "image/crow.jpg"
