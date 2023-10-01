@@ -3,6 +3,8 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager,Screen
 from kivy.core.window import Window
 from database import Database
+from time import sleep
+
 
 
 class FirstScreen(Screen):
@@ -20,8 +22,7 @@ class LoginScreen(Screen):
             self.manager.current = 'sucess'
         else:
             print('Credenciais inválidas')
-        print(username)
-        print(password)
+        print(username, password)
         db.conn.close()
 
 class Register(Screen):
@@ -35,12 +36,13 @@ class Register(Screen):
 
         # Inserir o usuário no banco de dados
         db.insert_user(username, password) 
-        
-        # Redirecionar para a tela de usuário criado
-        self.manager.current = 'sucess' 
+    
+        self.manager.current = 'user' 
 
         # Fechar a conexão com o banco de dados
         db.conn.close()
+
+
 class CreatedLogin(Screen):
     pass
 
