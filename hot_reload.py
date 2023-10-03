@@ -1,9 +1,8 @@
 from kivymd.tools.hotreload.app import MDApp
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager,Screen
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from database import Database
-from time import sleep
 
 class FirstScreen(Screen):
    pass
@@ -16,7 +15,7 @@ class LoginScreen(Screen):
 
         # Criar uma instância da classe Database
         db = Database('astronomy.db')
-        
+
         # Checar as credencias no banco de dados
         if db.check_credentials(username, password):
             self.manager.current = 'suced'
@@ -62,10 +61,10 @@ class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
     DEBUG = True
 
-    def build_app(self):
+    def build_app(self):    
         self.theme_cls.primary_palette = 'Gray'
         return Builder.load_file('app/Test.kv')
     
 if __name__ == '__main__': 
-    Window.size = (640, 860)
+    Window.size = (500, 800)
     HotReload().run()

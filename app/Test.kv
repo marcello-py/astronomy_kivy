@@ -6,17 +6,20 @@ ScreenManager:
     ResultScreen:
 
 <FirstScreen>:
+
     name: 'init'
-    MDFloatLayout:        
+    MDFloatLayout:   
+        md_bg_color: '#26231B'
         Image:
-            source: "image/moon_1.jpg"
-            allow_stretch: True
+            source: "image/cat.png"
+            size_hint: .90, .70
+            pos_hint: {"center_x": .50, "center_y": .6}
             keep_ratio: False
 
         MDLabel:
             text: "A s t r o n o m y"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1
+            text_color: "#6B6565"
             font_size: "35sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
@@ -25,7 +28,7 @@ ScreenManager:
         MDLabel:
             text: "make  login  or  register"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1
+            text_color: "#6B6565"
             font_size: "15sp"
             pos_hint: {"center_x": .5, "center_y": .25}
             halign: "center"
@@ -34,7 +37,7 @@ ScreenManager:
         MDRoundFlatButton:
             text: "LOGIN"
             size_hint: 0.4, 0.0
-            text_color: "white"
+            text_color:  "#6B6565"
             md_bg_color: "424247"
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .17}
@@ -46,7 +49,7 @@ ScreenManager:
         MDRoundFlatButton:
             text: "S I G N   U P"
             size_hint: 0.4, 0.0
-            text_color: "white"
+            text_color: "#6B6565"
             md_bg_color: "424247"
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .1}
@@ -57,32 +60,31 @@ ScreenManager:
 <LoginScreen>:
     name: 'login'
     MDFloatLayout:
-        Image:
-            source: "image/moon_2.jpg"
-            allow_stretch: True
-            keep_ratio: False
+        md_bg_color: '#26231B'
+#        Image:
+#            source: "image/moon_2.jpg"
+#            keep_ratio: False
 
         MDIconButton:
             icon: "chevron-left"     
             icon_size: "30sp"     
             pos_hint: {"center_x": .1, "center_y": .1}
             on_press: root.manager.current = 'init'
-            md_bg_color: 'e9f5f2'
+            md_bg_color: '#26231B'
 
         MDLabel:
             text: "Register"
             theme_text_color: "Custom"
-            text_color: 'white'
+            text_color: "#6B6565"
             font_size: "30sp"
             pos_hint: {"center_x": .5, "center_y": .90} 
             halign: "center"
             font_name: "Poppin-Regular.ttf"            
 
         MDLabel:
-    
             text: "Username"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1
+            text_color: "#6B6565"
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .50} 
             halign: "center"
@@ -91,16 +93,15 @@ ScreenManager:
         MDTextField:
             id: username_input
             hint_text: "Name"
-            mode: "round"
+            icon_right: "account"
             size_hint_x: .4
-            size_hint_y: None
             max_text_length: 30
             pos_hint: {"center_x": .5, "center_y": .40}
  
         MDLabel:
             text: "Password"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1
+            text_color: "#6B6565"
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
@@ -109,10 +110,11 @@ ScreenManager:
         MDTextField:
             id: password_input
             hint_text: "Password"
-            mode: "round"
+            icon_right: "lock"
+            line_color_normal: "#6B6565"
+            line_color_focus: "#6B6565"
             size_hint_x: .4
             max_text_length: 10
-            size_hint_y: None
             pos_hint: {"center_x": .5, "center_y": .25}
 
         MDRoundFlatButton:
