@@ -9,7 +9,7 @@ ScreenManager:
 
     name: 'init'
     MDFloatLayout:   
-        md_bg_color: '#26231B'
+        md_bg_color: '#181717'
         Image:
             source: "image/cat.png"
             size_hint: .90, .70
@@ -19,7 +19,7 @@ ScreenManager:
         MDLabel:
             text: "A s t r o n o m y"
             theme_text_color: "Custom"
-            text_color: "#6B6565"
+            text_color: "#FFFFFF"
             font_size: "35sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
@@ -28,7 +28,7 @@ ScreenManager:
         MDLabel:
             text: "make  login  or  register"
             theme_text_color: "Custom"
-            text_color: "#6B6565"
+            text_color: "#FFFFFF"
             font_size: "15sp"
             pos_hint: {"center_x": .5, "center_y": .25}
             halign: "center"
@@ -37,7 +37,7 @@ ScreenManager:
         MDRoundFlatButton:
             text: "LOGIN"
             size_hint: 0.4, 0.0
-            text_color:  "#6B6565"
+            text_color:  "#FFFFFF"
             md_bg_color: "424247"
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .17}
@@ -49,7 +49,7 @@ ScreenManager:
         MDRoundFlatButton:
             text: "S I G N   U P"
             size_hint: 0.4, 0.0
-            text_color: "#6B6565"
+            text_color: "#FFFFFF"
             md_bg_color: "424247"
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .1}
@@ -60,22 +60,22 @@ ScreenManager:
 <LoginScreen>:
     name: 'login'
     MDFloatLayout:
-        md_bg_color: '#26231B'
+        md_bg_color: '#181717'
 #        Image:
 #            source: "image/moon_2.jpg"
 #            keep_ratio: False
 
         MDIconButton:
             icon: "chevron-left"     
-            icon_size: "30sp"     
+            icon_size: "30sp"  
             pos_hint: {"center_x": .1, "center_y": .1}
             on_press: root.manager.current = 'init'
-            md_bg_color: '#26231B'
-
+            md_bg_color: '#323232'
+        
         MDLabel:
             text: "Register"
             theme_text_color: "Custom"
-            text_color: "#6B6565"
+            text_color: "#D0CECE"
             font_size: "30sp"
             pos_hint: {"center_x": .5, "center_y": .90} 
             halign: "center"
@@ -84,7 +84,7 @@ ScreenManager:
         MDLabel:
             text: "Username"
             theme_text_color: "Custom"
-            text_color: "#6B6565"
+            text_color: "#D0CECE"
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .50} 
             halign: "center"
@@ -93,7 +93,10 @@ ScreenManager:
         MDTextField:
             id: username_input
             hint_text: "Name"
+            hint_text_color: 'black'
             icon_right: "account"
+            line_color_normal: "#FFFFFF"
+            line_color_focus: "#FFFFFF"
             size_hint_x: .4
             max_text_length: 30
             pos_hint: {"center_x": .5, "center_y": .40}
@@ -101,26 +104,27 @@ ScreenManager:
         MDLabel:
             text: "Password"
             theme_text_color: "Custom"
-            text_color: "#6B6565"
+            text_color: "#D0CECE"
             font_size: "40sp"
             pos_hint: {"center_x": .5, "center_y": .30} 
             halign: "center"
             font_name: "Poppin-Regular.ttf"
 
+
         MDTextField:
             id: password_input
             hint_text: "Password"
             icon_right: "lock"
-            line_color_normal: "#6B6565"
-            line_color_focus: "#6B6565"
+            line_color_normal: "#D0CECE"
             size_hint_x: .4
             max_text_length: 10
             pos_hint: {"center_x": .5, "center_y": .25}
+            password: True
 
         MDRoundFlatButton:
             text: "acess"
             font_name: "Poppin-Regular.ttf"
-            text_color: "white"
+            text_color: "#D0CECE"
             size_hint_x: .4
             pos_hint: {"center_x": .5, "center_y": .10}
             md_bg_color: "424247"
