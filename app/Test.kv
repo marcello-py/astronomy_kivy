@@ -42,7 +42,7 @@ ScreenManager:
             font_size: "25sp"
             pos_hint: {"center_x": .5, "center_y": .17}
             line_color_normal: 1, 0, 0, 1
-            line_color_down: 0, 1, 0, 1
+            line_color_down: 0, 1, 0, 1 
             on_press: root.manager.current = 'login'
             font_name: "Poppin-Regular.ttf"
 
@@ -60,179 +60,130 @@ ScreenManager:
 <LoginScreen>:
     name: 'login'
     MDFloatLayout:
-        md_bg_color: '#181717'
-#        Image:
-#            source: "image/moon_2.jpg"
-#            keep_ratio: False
+        md_bg_color: '#525151'
+        Image:
+            source: "image/moon_bg.png"
+            size_hint: 500, 500
+            pos_hint: {"center_x": .6, "center_y": .9}
+            keep_ratio: False
 
-        MDIconButton:
-            icon: "chevron-left"     
-            icon_size: "30sp"  
-            pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'init'
-            md_bg_color: '#323232'
-        
-        MDLabel:
-            text: "Register"
-            theme_text_color: "Custom"
-            text_color: "#D0CECE"
-            font_size: "30sp"
-            pos_hint: {"center_x": .5, "center_y": .90} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"            
+        MDCard:
+            size_hint: None, None
+            size: "400dp", "400dp"
+            radius: 30
+            md_bg_color: '#3C3A3A'
+            pos_hint: {"center_x": .5, "center_y": .3}
 
-        MDLabel:
-            text: "Username"
-            theme_text_color: "Custom"
-            text_color: "#D0CECE"
-            font_size: "40sp"
-            pos_hint: {"center_x": .5, "center_y": .50} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
+            BoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "30dp"
+                pos_hint: {"center_x": .3, "center_y": .6}
 
-        MDTextField:
-            id: username_input
-            hint_text: "Name"
-            hint_text_color: 'black'
-            icon_right: "account"
-            line_color_normal: "#FFFFFF"
-            line_color_focus: "#FFFFFF"
-            size_hint_x: .4
-            max_text_length: 30
-            pos_hint: {"center_x": .5, "center_y": .40}
- 
-        MDLabel:
-            text: "Password"
-            theme_text_color: "Custom"
-            text_color: "#D0CECE"
-            font_size: "40sp"
-            pos_hint: {"center_x": .5, "center_y": .30} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
+                MDTextField:
+                    id: username_input
+                    hint_text: "Name"
+                    hint_text_color: 'black'
+                    icon_right: "account"
+                    line_color_normal: "#FFFFFF"
+                    width: "300dp"
+                    max_text_length: 30
+                    mode: "rectangle"
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6}
+
+                MDTextField:
+                    id: password_input
+                    hint_text: "Password"
+                    icon_right: "lock"
+                    line_color_normal: "#D0CECE"
+                    width: "300dp"
+                    max_text_length: 30
+                    mode: "rectangle"
+                    password: True
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6}
+
+                MDRoundFlatButton:
+                    text: "acess"
+                    font_name: "Poppin-Regular.ttf"
+                    text_color: "white"
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6, "center_y": .8}
+                    md_bg_color: "424247"
+                    on_press: root.login_user()
+
+            MDIconButton:
+                icon: "chevron-left"     
+                icon_size: "30sp"     
+                on_press: root.manager.current = 'init'
+                md_bg_color: '#3C3A3A'
+                pos_hint: {"center_x": .1}
 
 
-        MDTextField:
-            id: password_input
-            hint_text: "Password"
-            icon_right: "lock"
-            line_color_normal: "#D0CECE"
-            size_hint_x: .4
-            max_text_length: 10
-            pos_hint: {"center_x": .5, "center_y": .25}
-            password: True
 
-        MDRoundFlatButton:
-            text: "acess"
-            font_name: "Poppin-Regular.ttf"
-            text_color: "#D0CECE"
-            size_hint_x: .4
-            pos_hint: {"center_x": .5, "center_y": .10}
-            md_bg_color: "424247"
-            on_press: root.login_user()
 
 <RegisterScreen>:
     name: 'register'
     MDFloatLayout:        
+        md_bg_color: '#525151'
         Image:
-            source: "image/moon_3.jpg"
-            allow_stretch: True
+            source: "image/moon_bg.png"
+            size_hint: 500, 500
+            pos_hint: {"center_x": .6, "center_y": .9}
             keep_ratio: False
-            
-        MDLabel:
-            text: "Astronomy"
-            theme_text_color: "Custom"
-            text_color: 'white'
-            font_size: "30sp"
-            pos_hint: {"center_x": .5, "center_y": .98} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
+        MDCard:
+            size_hint: None, None
+            size: "400dp", "400dp"
+            radius: 30
+            md_bg_color: '#3C3A3A'
+            pos_hint: {"center_x": .5, "center_y": .3}
 
-        MDIconButton:
-            icon: "chevron-left"     
-            icon_size: "30sp"     
-            pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'init'
-            md_bg_color: 'e9f5f2'
+            BoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "30dp"
+                pos_hint: {"center_x": .3, "center_y": .6}
 
+                MDTextField:
+                    id: username_input
+                    hint_text: "Name"
+                    hint_text_color: 'black'
+                    icon_right: "account"
+                    line_color_normal: "#FFFFFF"
+                    width: "300dp"
+                    max_text_length: 30
+                    mode: "rectangle"
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6}
 
-        MDLabel:
-            text: "Name"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1
-            font_size: "30sp"
-            pos_hint: {"center_x": .5, "center_y": .50} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
+                MDTextField:
+                    id: password_input
+                    hint_text: "Password"
+                    icon_right: "lock"
+                    line_color_normal: "#D0CECE"
+                    width: "300dp"
+                    max_text_length: 30
+                    mode: "rectangle"
+                    password: True
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6}
 
-        MDTextField:
-            id: username_input
-            hint_text: "Name"
-            mode: "round"
-            size_hint_x: .4
-            size_hint_y: None
-            max_text_length: 30
-            pos_hint: {"center_x": .5, "center_y": .40}
+                MDRoundFlatButton:
+                    text: "register"
+                    font_name: "Poppin-Regular.ttf"
+                    text_color: "white"
+                    size_hint_x: .9
+                    pos_hint: {"center_x": .6, "center_y": .8}
+                    md_bg_color: "424247"
+                    on_press: root.login_user()
 
-        MDLabel:
-            text: "Password"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1
-            font_size: "30sp"
-            pos_hint: {"center_x": .5, "center_y": .30} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
-
-        MDTextField:
-            id: password_input
-            hint_text: "Password"
-            mode: "round"
-            size_hint_x: .4
-            max_text_length: 10
-            size_hint_y: None
-            pos_hint: {"center_x": .5, "center_y": .20}
-
-        MDRoundFlatButton:
-            text: "Register"
-            font_name: "Poppin-Regular.ttf"
-            text_color: "white"
-            size_hint_x: .4
-            pos_hint: {"center_x": .5, "center_y": .10}
-            md_bg_color: "424247"
-            on_press: root.register_user()
-
-<CreatedScreen>:
-    name: 'created'
-    MDFloatLayout:        
-        Image:
-            source: "image/moon_4.jpg"
-            allow_stretch: True
-            keep_ratio: False
- 
-        MDLabel:
-            text: "A s t r o n o m y"
-            theme_text_color: "Custom"
-            text_color: 1, 1, 1
-            font_size: "35sp"
-            pos_hint: {"center_x": .5, "center_y": .30} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
-
-        MDIconButton:
-            icon: "chevron-left"     
-            icon_size: "30sp"     
-            pos_hint: {"center_x": .1, "center_y": .1}
-            on_press: root.manager.current = 'init'
-            md_bg_color: 'e9f5f2'
-
-        MDLabel:
-            text: "Account Created!"
-            theme_text_color: "Custom"
-            text_color: 'white'
-            font_size: "30sp"
-            pos_hint: {"center_x": .5, "center_y": .90} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
-
+            MDIconButton:
+                icon: "chevron-left"     
+                icon_size: "30sp"     
+                on_press: root.manager.current = 'init'
+                md_bg_color: '#3C3A3A'
+                pos_hint: {"center_x": .1}
 
 <ResultScreen>:
     name: 'suced'

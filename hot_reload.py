@@ -8,21 +8,22 @@ class FirstScreen(Screen):
    pass
 
 class LoginScreen(Screen):
+  
     def login_user(self):
+        try:
         # Coletar os valores de entrada
-        username = self.ids.username_input.text
-        password = self.ids.password_input.text
+            username = self.ids.username_input.text
+            password = self.ids.password_input.text
 
-        # Criar uma instância da classe Database
-        db = Database('astronomy.db')
+            # Criar uma instância da classe Database
+            db = Database('astronomy.db')
 
-        # Checar as credencias no banco de dados
-        if db.check_credentials(username, password):
-            self.manager.current = 'suced'
-        else:
-            print('Credenciais inválidas')
-        print(username, password)
-        db.conn.close()
+            # Checar as credencias no banco de dados
+            if db.check_credentials(username, password):
+                    self.manager.current = 'suced'
+            db.conn.close()
+        except ValueError:
+            print('error')
 
 class RegisterScreen(Screen):
     def register_user(self):
