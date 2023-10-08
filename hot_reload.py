@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from database import Database
+#from scraping import Scraping
 
 class FirstScreen(Screen):
    pass
@@ -37,17 +38,23 @@ class RegisterScreen(Screen):
         # Inserir o usuário no banco de dados
         db.insert_user(username, password) 
     
-        self.manager.current = 'created' 
+        self.manager.current = 'suced' 
 
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
 
-class CreatedScreen(Screen):
-    pass
-
 class ResultScreen(Screen):
-    pass
+    def display_data(self):
+        # Coletar os valores de entrada
+        username = self.ids.username_input.text
+        password = self.ids.password_input.text 
+            
+        db = Database('astronomy.db')
+
+        db.view_all_users(username, password)
+
+        db.conn.close()
 
 sm = ScreenManager()
 
@@ -55,7 +62,6 @@ sm = ScreenManager()
 sm.add_widget(FirstScreen(name = 'init'))
 sm.add_widget(LoginScreen(name = 'login')) 
 sm.add_widget(RegisterScreen(name = 'register'))
-sm.add_widget(CreatedScreen(name = 'created')) 
 sm.add_widget(ResultScreen(name = 'suced')) 
  
 class HotReload(MDApp):
