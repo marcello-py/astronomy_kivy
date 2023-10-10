@@ -46,9 +46,6 @@ class Register(Screen):
         db.conn.close()
 
 
-class CreatedLogin(Screen):
-    pass
-
 class LoginSucess(Screen):
     pass
 
@@ -58,8 +55,7 @@ sm = ScreenManager()
 sm.add_widget(FirstScreen(name = 'login'))
 sm.add_widget(LoginScreen(name = 'acess')) 
 sm.add_widget(Register(name = 'cadastro'))
-sm.add_widget(CreatedLogin(name = 'user')) 
-sm.add_widget(LoginSucess(name = 'sucess')) 
+sm.add_widget(LoginSucess(name = 'suced')) 
 
 
 class Test(MDApp):

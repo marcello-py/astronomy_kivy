@@ -43,18 +43,9 @@ class RegisterScreen(Screen):
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
-
 class ResultScreen(Screen):
-    def display_data(self):
-        # Coletar os valores de entrada
-        username = self.ids.username_input.text
-        password = self.ids.password_input.text 
-            
-        db = Database('astronomy.db')
+    pass 
 
-        db.view_all_users(username, password)
-
-        db.conn.close()
 
 sm = ScreenManager()
 

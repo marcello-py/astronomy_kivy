@@ -47,8 +47,6 @@ class Database:
 # Criar uma instância da classe Database
 db = Database('astronomy.db')
 
-# Inserir um usuário com valores fictícios
-#db.insert_user('marcelo', '123')
 
 # Verificar as credenciais corretas
 if db.check_credentials('marcelo', '123'):
