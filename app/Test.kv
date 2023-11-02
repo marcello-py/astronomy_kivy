@@ -203,7 +203,6 @@ ScreenManager:
             md_bg_color: '#3C3A3A'
             pos_hint: {"center_x": .1, "center_y":.9}
         
-
         MDBoxLayout:
             orientation: 'vertical'
             MDLabel:
@@ -211,53 +210,28 @@ ScreenManager:
                 font_name: "Poppin-Regular.ttf"
                 font_size: '40dp'
                 pos_hint: {"center_x": .8, "center_y": .9}
-                
-        MDGridLayout:
-            size_hint_y:.50
-            cols:2
-            padding:[dp(15),dp(15),dp(15),dp(35)]
-            spacing:dp(15)
-            ElementCard:
-                text:"voltar"
-                image:"image/procurar.png"
-                on_press: root.manager.current = 'init'
-            ElementCard:
-                text:"TEXTO2"
-                image:"image/procurar.png"
-            ElementCard:
-                text:"TEXTO3"
-                image:"image/procurar.png"
-            ElementCard:
-                text:"TEXTO4"
-                image:"image/procurar.png"
-                
-<ElementCard@MDCard>:
-    md_bg_color: 120/255, 173/255, 173/255, 1
-    padding:dp(10)
-    spacing:dp(10)
-    radius:dp(25)
-    ripple_behavior: True
-    image:''
-    text:""
-    items_count:""
-    subtext:''
+                    
+            MDScreen:
+                GridLayout:
+                    size_hint_y:.40
+                    cols:2
+                    padding:[dp(15),dp(15)]
+                    spacing:dp(15)
+                    
+                    MDCard:
+                        size_hint_x: 10
+                        focus_behavior: True
+                        pos_hint: {"center_x": .3, "center_y": .5}
+                        md_bg_color: "darkgrey"
+                        unfocus_color: "darkgrey"
+                        focus_color: "grey"
+                        elevation: 4
 
-    orientation:'vertical'
-    Image:
-        source:root.image
-
-
-    MDBoxLayout:
-        orientation:'vertical'
-        MDLabel:
-            halign:"center"
-            text:root.text
-            font_size: "15sp" 
-            font_name: "Poppin-Regular.ttf"
-        MDLabel:
-            halign:"center"
-            font_style:"Caption"
-            text:root.subtext
-        MDLabel:
-            halign:"center"
-            text:root.items_count
+                    MDCard:
+                        size_hint_x: 10
+                        focus_behavior: True
+                        pos_hint: {"center_x": .7, "center_y": .5}
+                        md_bg_color: "darkgrey"
+                        unfocus_color: "darkgrey"
+                        focus_color: "grey"
+                        elevation: 4
