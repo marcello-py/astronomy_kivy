@@ -211,27 +211,65 @@ ScreenManager:
                 font_size: '40dp'
                 pos_hint: {"center_x": .8, "center_y": .9}
                     
-            MDScreen:
-                GridLayout:
-                    size_hint_y:.40
-                    cols:2
-                    padding:[dp(15),dp(15)]
-                    spacing:dp(15)
+            
+            GridLayout:
+                size_hint_y:.60
+                cols:2
+                padding:[dp(15),dp(15),dp(15),dp(15)]
+                spacing:dp(15)
                     
-                    MDCard:
-                        size_hint_x: 10
-                        focus_behavior: True
-                        pos_hint: {"center_x": .3, "center_y": .5}
-                        md_bg_color: "darkgrey"
-                        unfocus_color: "darkgrey"
-                        focus_color: "grey"
-                        elevation: 4
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .3, "center_y": .5}
+                    md_bg_color: "darkgrey"
+                    unfocus_color: "darkgrey"
+                    focus_color: "grey"
+                    elevation: 4
 
-                    MDCard:
-                        size_hint_x: 10
-                        focus_behavior: True
-                        pos_hint: {"center_x": .7, "center_y": .5}
-                        md_bg_color: "darkgrey"
-                        unfocus_color: "darkgrey"
-                        focus_color: "grey"
-                        elevation: 4
+                    MDLabel:
+                        text: "TEXTO1 "
+                        halign: "center"
+                        font_size: "20sp"
+                    
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .3, "center_y": .5}
+                    md_bg_color: "darkgrey"
+                    unfocus_color: "darkgrey"
+                    focus_color: "grey"
+                    elevation: 4
+
+                    MDLabel:
+                        text: "TEXTO2 "
+                        halign: "center"
+                        font_size: "20sp"
+
+                    
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .3, "center_y": .5}
+                    md_bg_color: "darkgrey"
+                    unfocus_color: "darkgrey"
+                    focus_color: "grey"
+                    elevation: 4
+                    MDLabel:
+                        text: "TEXTO3 "
+                        halign: "center"
+                        font_size: "20sp"
+
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .3, "center_y": .5}
+                    md_bg_color: "darkgrey"
+                    unfocus_color: "darkgrey"
+                    focus_color: "grey"
+                    elevation: 4
+                    on_press: root.manager.current = 'init'
+                    MDLabel:
+                        text: "TEXTO4 "
+                        halign: "center"
+                        font_size: "20sp"
