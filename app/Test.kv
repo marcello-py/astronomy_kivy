@@ -8,7 +8,7 @@ ScreenManager:
 
     name: 'init'
     MDFloatLayout:   
-        md_bg_color: '#181717'
+        md_bg_color: '#212121'
         Image:
             source: "image/cat.png"
             size_hint: .90, .70
@@ -60,156 +60,131 @@ ScreenManager:
     name: 'login'
     MDFloatLayout:
         md_bg_color: '#525151'
+#        Image:
+#            source: "image/marca_dagua.png"
+#            size_hint: .50, .50
+#            pos_hint: {"center_x": .5, "center_y": .6}
+#            keep_ratio: False
         Image:
-            source: "image/moon_bg.png"
-            size_hint: 500, 500
-            pos_hint: {"center_x": .6, "center_y": .9}
+            source: "image/saturn.png"
+            size_hint: 20, 20
+            pos_hint: {"center_x": .7, "center_y": .9}
             keep_ratio: False
 
-        MDCard:
-            size_hint: None, None
-            size: "400dp", "400dp"
-            radius: 30
-            md_bg_color: '#3C3A3A'
-            pos_hint: {"center_x": .5, "center_y": .3}
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
 
-            BoxLayout:
-                orientation: "vertical"
-                padding: "20dp"
-                spacing: "30dp"
-                pos_hint: {"center_x": .3, "center_y": .6}
+            MDTextField:
+                id: username_input
+                hint_text: "Name"
+                hint_text_color: 'black'
+                icon_right: "account"
+                line_color_normal: "#FFFFFF"
+                width: "300dp"
+                max_text_length: 30
+#               mode: "rectangle"
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
 
-                MDTextField:
-                    id: username_input
-                    hint_text: "Name"
-                    hint_text_color: 'black'
-                    icon_right: "account"
-                    line_color_normal: "#FFFFFF"
-                    width: "300dp"
-                    max_text_length: 30
-                    mode: "rectangle"
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6}
+            MDTextField:
+                id: password_input
+                hint_text: "Password"
+                icon_right: "lock"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+#               mode: "rectangle"
+                password: True
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
 
-                MDTextField:
-                    id: password_input
-                    hint_text: "Password"
-                    icon_right: "lock"
-                    line_color_normal: "#D0CECE"
-                    width: "300dp"
-                    max_text_length: 30
-                    mode: "rectangle"
-                    password: True
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6}
+            MDRoundFlatButton:
+                text: "acess"
+                font_name: "Poppin-Regular.ttf"
+                text_color: "white"
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+                md_bg_color: "424247"
+                on_press: root.login_user()
 
-                MDRoundFlatButton:
-                    text: "acess"
-                    font_name: "Poppin-Regular.ttf"
-                    text_color: "white"
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6, "center_y": .8}
-                    md_bg_color: "424247"
-                    on_press: root.login_user()
-
-            MDIconButton:
-                icon: "chevron-left"     
-                icon_size: "30sp"     
-                on_press: root.manager.current = 'init'
-                md_bg_color: '#3C3A3A'
-                pos_hint: {"center_x": .1}
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .90}
 
 <RegisterScreen>:
     name: 'register'
     MDFloatLayout:        
         md_bg_color: '#525151'
         Image:
-            source: "image/moon_bg.png"
-            size_hint: 500, 500
-            pos_hint: {"center_x": .6, "center_y": .9}
-            keep_ratio: False     
+            source: "image/lua_crescente.png"
+            size_hint: .30, .30
+            pos_hint: {"center_x": .8, "center_y": .9}
 
-        MDLabel:
-            text: "c a d a s t e r"
-            theme_text_color: "Custom"
-            text_color: "#FFFFFF"
-            font_size: "35sp"
-            pos_hint: {"center_x": .5, "center_y": .80} 
-            halign: "center"
-            font_name: "Poppin-Regular.ttf"
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
+            image:
+            source:'marca_dagua.png'
 
-        MDCard:
-            size_hint: None, None
-            size: "400dp", "400dp"
-            radius: 30
-            md_bg_color: '#3C3A3A'
-            pos_hint: {"center_x": .5, "center_y": .3}
+            MDTextField:
+                id: username_input
+                hint_text: "Name"
+                hint_text_color: 'black'
+                icon_right: "account"
+                line_color_normal: "#FFFFFF"
+                width: "300dp"
+                max_text_length: 30
+#                mode: "rectangle"
+                size_hint_x: .9
+                pos_hint: {"center_x": .5} 
 
-            BoxLayout:
-                orientation: "vertical"
-                padding: "20dp"
-                spacing: "30dp"
-                pos_hint: {"center_x": .3, "center_y": .6}
+            MDTextField:
+                id: password_input
+                hint_text: "Password"
+                icon_right: "lock"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+#                mode: "rectangle"
+                password: True
+                size_hint_x: .9
+                pos_hint: {"center_x": .5}
 
-                MDTextField:
-                    id: username_input
-                    hint_text: "Name"
-                    hint_text_color: 'black'
-                    icon_right: "account"
-                    line_color_normal: "#FFFFFF"
-                    width: "300dp"
-                    max_text_length: 30
-                    mode: "rectangle"
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6} 
+            MDRoundFlatButton:
+                text: "register"
+                font_name: "Poppin-Regular.ttf"
+                text_color: "white"
+                size_hint_x: .9
+                pos_hint: {"center_x": .5}
+                md_bg_color: "424247"
+                on_press: root.register_user()
 
-                MDTextField:
-                    id: password_input
-                    hint_text: "Password"
-                    icon_right: "lock"
-                    line_color_normal: "#D0CECE"
-                    width: "300dp"
-                    max_text_length: 30
-                    mode: "rectangle"
-                    password: True
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6}
-
-                MDRoundFlatButton:
-                    text: "register"
-                    font_name: "Poppin-Regular.ttf"
-                    text_color: "white"
-                    size_hint_x: .9
-                    pos_hint: {"center_x": .6, "center_y": .8}
-                    md_bg_color: "424247"
-                    on_press: root.register_user()
-
-            MDIconButton:
-                icon: "chevron-left"     
-                icon_size: "30sp"     
-                on_press: root.manager.current = 'init'
-                md_bg_color: '#3C3A3A'
-                pos_hint: {"center_x": .1}
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .9}
 
 <ResultScreen>:
     name: 'suced'
     MDBoxLayout:
         md_bg_color: '#525151'
         orientation: 'vertical'
-        MDIconButton:
-            icon: "chevron-left"     
-            icon_size: "30sp"     
-            on_press: root.manager.current = 'init'
-            md_bg_color: '#3C3A3A'
-            pos_hint: {"center_x": .1, "center_y":.9}
-        
+
         MDBoxLayout:
             orientation: 'vertical'
             MDLabel:
-                text: 'BEM VINDO'
+                text: 'TESTE'
                 font_name: "Poppin-Regular.ttf"
                 font_size: '40dp'
-                pos_hint: {"center_x": .8, "center_y": .9}
+                pos_hint: {"center_x": .9}
                     
             
             GridLayout:
@@ -241,7 +216,6 @@ ScreenManager:
                     AsyncImage:
                         source: 'image/profile.png'
 
-                    
                 MDCard:
                     size_hint_x: 100
                     focus_behavior: True
