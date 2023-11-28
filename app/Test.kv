@@ -3,6 +3,7 @@ ScreenManager:
     LoginScreen:
     RegisterScreen:
     ResultScreen:
+    ScrapingScreen:
 
 <FirstScreen>:
 
@@ -235,7 +236,23 @@ ScreenManager:
                     #unfocus_color: "grey"
                     focus_color: 188/255, 227/255, 217/255, 1
                     elevation: 4
-                    on_press: root.manager.current = 'init'
+                    on_press: root.close_app()
 
                     AsyncImage:
                         source: 'image/logout.png' 
+
+<ScrapingScreen>:
+    name:'scraping'
+    MDFloatLayout:   
+        md_bg_color: '#212121'
+        Image:
+            source: "image/cat.png"
+            size_hint: .90, .70
+            pos_hint: {"center_x": .50, "center_y": .6}
+            keep_ratio: False 
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .9}

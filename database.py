@@ -49,7 +49,7 @@ db = Database('astronomy.db')
 
 
 # Verificar as credenciais corretas
-if db.check_credentials('marcelo', '123'):
+if db.check_credentials('m', '1'):
     print("Credenciais corretas.")
 else:
     print("Credenciais incorretas.")

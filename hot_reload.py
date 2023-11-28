@@ -43,16 +43,22 @@ class RegisterScreen(Screen):
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
-class ResultScreen(Screen):
+class ScrapingScreen(Screen):
     pass 
 
-class Search(Screen):
-    def button_search(self):
-        button = Scraping()
-        button.url_da_imagem()
-        print(button,'deu certo')
-        
+class ResultScreen(Screen):
 
+    def button_search(self):
+
+        # Obter os dados da funcão scraping
+        imagem = Scraping.obter_imagem('ap970826.html')
+        self.manager.current = 'scraping'
+        print(imagem,'deu certo')
+    
+    def close_app(self):
+        self.stop()
+    
+ 
 sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
@@ -60,6 +66,7 @@ sm.add_widget(FirstScreen(name = 'init'))
 sm.add_widget(LoginScreen(name = 'login')) 
 sm.add_widget(RegisterScreen(name = 'register'))
 sm.add_widget(ResultScreen(name = 'suced')) 
+sm.add_widget(ScrapingScreen(name = 'scraping'))
 
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
@@ -68,7 +75,7 @@ class HotReload(MDApp):
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray'
         return Builder.load_file('app/Test.kv')
-    
+        
 if __name__ == '__main__': 
     Window.size = (500, 800)
     HotReload().run()
