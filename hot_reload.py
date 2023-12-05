@@ -33,11 +33,10 @@ class RegisterScreen(Screen):
         password = self.ids.password_input.text
 
         # Criar uma instância da classe Database
-        db = Database('astronomy.db')
+        db = Database('astronomy.db') 
 
         # Inserir o usuário no banco de dados
         db.insert_user(username, password) 
-    
         self.manager.current = 'suced' 
 
         # Fechar a conexão com o banco de dados
@@ -47,6 +46,7 @@ class ScrapingScreen(Screen):
     pass 
 
 class ResultScreen(Screen):
+    pass
 
     def button_search(self):
 
@@ -54,9 +54,9 @@ class ResultScreen(Screen):
         imagem = Scraping.obter_imagem('ap970826.html')
         self.manager.current = 'scraping'
         print(imagem,'deu certo')
-    
-    def close_app(self):
-        self.stop()
+
+    #def close_app(self):
+    #    self.stop()
     
  
 sm = ScreenManager()
