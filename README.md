@@ -1,4 +1,4 @@
-O projeto astronomy tem como objetivo colocar em práticas afim de conhecimento técnicas de manipulação de dados utilizando "web scraping", o APP fará uma consulta no site https://apod.nasa.gov/apod/archivepix.html, é feito a consulta da imagem fotografada na data do seu nascimento.
+O projeto astronomy tem como objetivo colocar em prática conhecimentos e técnicas de manipulação de dados utilizando "web scraping", o APP fará uma consulta no site https://apod.nasa.gov/apod/archivepix.html, é feito a consulta da imagem fotografada na data do seu nascimento.
 O app vai permitir personalizar seu perfil, no momento está em desenvolvimento e processo de testes.
 
 
