@@ -3,7 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from database import Database
-from scraping import Scraping
+#from scraping import Scraping
 
 class FirstScreen(Screen):
    pass
@@ -50,14 +50,13 @@ class ResultScreen(Screen):
 
     def button_search(self):
 
-        # Obter os dados da funcão scraping
+      '''  # Obter os dados da funcão scraping
         imagem = Scraping.obter_imagem('ap970826.html')
         self.manager.current = 'scraping'
-        print(imagem,'deu certo')
+        print(imagem,'deu certo')'''
+    pass
 
-    #def close_app(self):
-    #    self.stop()
-    
+
  
 sm = ScreenManager()
 

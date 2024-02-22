@@ -1,4 +1,4 @@
-import requests
+'''import requests
 from bs4 import BeautifulSoup
 
 class Scraping:
@@ -34,3 +34,4 @@ class Scraping:
         print(f'URL da imagem para a data {data}: {url_da_imagem}')
     else:
         print(f'Imagem não encontrada para a data {data}')
+'''
