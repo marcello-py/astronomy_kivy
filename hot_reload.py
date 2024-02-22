@@ -68,6 +68,7 @@ sm.add_widget(RegisterScreen(name = 'register'))
 sm.add_widget(ResultScreen(name = 'suced')) 
 sm.add_widget(ScrapingScreen(name = 'scraping'))
 
+
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
     DEBUG = True

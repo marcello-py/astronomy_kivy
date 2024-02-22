@@ -3,6 +3,7 @@ import os
 class Image:
     
     def get(datas):
+        
         try:
             dados = f'../APOC/{datas}.jpg'
             if os.path.exists(dados): # Verificar se o arquivo existe dentro da pasta
@@ -18,14 +19,15 @@ class Image:
 
             
     def verificar_caminho(caminho_arquivo):
+        
         # Abre o arquivo usando o aplicativo padrão do sistema operacional
         os.system(f'start {caminho_arquivo}')
             
 
             
-    ano = '16'
-    mes = '07'
-    data = '14'
+    ano = '15'
+    mes = '02'
+    data = '05'
     datas = ano+mes+data
     imagem = get(datas)
     caminho_arquivo = f'../APOC/{datas}.jpg'
@@ -34,3 +36,5 @@ class Image:
         print(f"Arquivo {datas} encontrado!")
     else:
         print("Arquivo não encontrado.")
+        
+        
