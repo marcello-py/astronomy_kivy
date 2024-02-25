@@ -3,7 +3,6 @@ import os
 class Image:
     
     def get(datas):
-        
         try:
             dados = f'../APOC/{datas}.jpg'
             if os.path.exists(dados): # Verificar se o arquivo existe dentro da pasta

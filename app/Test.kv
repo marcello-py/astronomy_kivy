@@ -3,7 +3,7 @@ ScreenManager:
     LoginScreen:
     RegisterScreen:
     ResultScreen:
-    ScrapingScreen:
+    ConsultScreen:
 
 <FirstScreen>:
 
@@ -85,7 +85,6 @@ ScreenManager:
                 line_color_normal: "#FFFFFF"
                 width: "300dp"
                 max_text_length: 30
-#               mode: "rectangle"
                 size_hint_x: .8
                 pos_hint: {"center_x": .5}
 
@@ -96,7 +95,6 @@ ScreenManager:
                 line_color_normal: "#D0CECE"
                 width: "300dp"
                 max_text_length: 30
-#               mode: "rectangle"
                 password: True
                 size_hint_x: .8
                 pos_hint: {"center_x": .5}
@@ -187,7 +185,6 @@ ScreenManager:
                 font_size: '40dp'
                 pos_hint: {"center_x": .9}
                     
-            
             GridLayout:
                 size_hint_y:.60
                 cols:2
@@ -241,18 +238,72 @@ ScreenManager:
                     AsyncImage:
                         source: 'logo/logout.png' 
 
-<ScrapingScreen>:
+<ConsultScreen>:
     name:'scraping'
     MDFloatLayout:   
-        md_bg_color: '#212121'
-        Image:
-            source: "logo/cat.png"
-            size_hint: .90, .70
-            pos_hint: {"center_x": .50, "center_y": .6}
-            keep_ratio: False 
+        md_bg_color: '#544e4e'
+#        Image:
+#            source: "logo/cat.png"
+#            size_hint: .90, .70
+#            pos_hint: {"center_x": .50, "center_y": .6}
+#            keep_ratio: False 
         MDIconButton:
             icon: "chevron-left"     
             icon_size: "30sp"     
             on_press: root.manager.current = 'suced'
             md_bg_color: '#525151'
-            pos_hint: {"center_y": .9}
+            pos_hint: {"center_y": .9} 
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
+
+            MDTextField:
+                id: username_input
+                hint_text: "ANO"
+                hint_text_color: 'white'
+                icon_right: "calendar"
+                line_color_normal: "#FFFFFF"
+                width: "300dp"
+                max_text_length: 30
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+
+            MDTextField:
+                id: password_input
+                hint_text: "DATA"
+                hint_text_color: 'white'
+                icon_right: "calendar"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+
+            MDTextField:
+                id: password_input
+                hint_text: "MES"
+                hint_text_color: 'white'
+                icon_right: "calendar"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+
+            MDRoundFlatButton:
+                text: "acess"
+                font_name: "Poppin-Regular.ttf"
+                text_color: "white"
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+                md_bg_color: "424247"
+                on_press: root.login_user()
+    
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .90}
