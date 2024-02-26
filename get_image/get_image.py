@@ -2,6 +2,7 @@ import os
 
 class Image:
     
+    @staticmethod # @statictmethod é usado para definir métodos que pertencem à classe, mas não dependem de informações específicas de cada objeto
     def get(datas):
         try:
             dados = f'../APOC/{datas}.jpg'
@@ -17,23 +18,28 @@ class Image:
             print(f'o arquivo {datas}, não foi localizado.')
 
             
+    @staticmethod
     def verificar_caminho(caminho_arquivo):
-        
-        # Abre o arquivo usando o aplicativo padrão do sistema operacional
-        os.system(f'start {caminho_arquivo}')
+        os.system(f'start {caminho_arquivo}') # Abre o arquivo usando o aplicativo padrão do sistema operacional
             
 
-            
-    ano = '15'
-    mes = '02'
-    data = '05'
-    datas = ano+mes+data
-    imagem = get(datas)
-    caminho_arquivo = f'../APOC/{datas}.jpg'
-    verificar_caminho(caminho_arquivo)
-    if imagem is not None:
-        print(f"Arquivo {datas} encontrado!")
-    else:
-        print("Arquivo não encontrado.")
-        
-        
+    @staticmethod
+    def get_image():
+        pass
+    
+    
+ano = '15'
+mes = '02'
+data = '05'
+datas = ano+mes+data
+imagem = Image.get(datas)
+caminho_arquivo = f'../APOC/{datas}.jpg'
+Image.verificar_caminho(caminho_arquivo)
+if imagem is not None:
+    print(f"Arquivo {datas} encontrado!")
+else:
+    print("Arquivo não encontrado.")
+
+
+def casa(self):
+    pass
