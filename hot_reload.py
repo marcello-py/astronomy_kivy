@@ -3,7 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from database import Database
-from scraping import Scraping
+#from scraping import Scraping
 
 class FirstScreen(Screen):
    pass
@@ -42,23 +42,25 @@ class RegisterScreen(Screen):
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
-class ScrapingScreen(Screen):
+class ConsultScreen(Screen):
     pass 
 
 class ResultScreen(Screen):
     pass
 
     def button_search(self):
-
-        # Obter os dados da funcão scraping
-        imagem = Scraping.obter_imagem('ap970826.html')
+        
+        '''  # Obter a imagem do banco APOC
+        ano = self.ano
+        mes = self.mes
+        data = self.data 
+        
+        imagem = get(datas) # instanciando a classe
+        imagem.get(ano, mes, data) # capturar os dados da variáveis
+        self.manager.current = 'scraping' '''
         self.manager.current = 'scraping'
-        print(imagem,'deu certo')
-
-    #def close_app(self):
-    #    self.stop()
     
- 
+
 sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
@@ -66,7 +68,8 @@ sm.add_widget(FirstScreen(name = 'init'))
 sm.add_widget(LoginScreen(name = 'login')) 
 sm.add_widget(RegisterScreen(name = 'register'))
 sm.add_widget(ResultScreen(name = 'suced')) 
-sm.add_widget(ScrapingScreen(name = 'scraping'))
+sm.add_widget(ConsultScreen(name = 'scraping'))
+
 
 class HotReload(MDApp):
     KV_FILES = ['app/Test.kv']
