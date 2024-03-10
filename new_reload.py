@@ -1,9 +1,11 @@
 from kivymd.tools.hotreload.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.animation import Animation
-from kivy.clock import Clock
 from kivy.core.window import Window
+from kivy.animation import Animation
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.image import Image
+from kivy.clock import Clock
 from database import Database
 #from scraping import Scraping
 
@@ -18,8 +20,8 @@ class FirstScreen(Screen):
         #anim.repeat = True
         anim.start(image)
 
+
 class LoginScreen(Screen):
-  
     def login_user(self):
         try:
             # Coletar os valores de entrada
@@ -29,9 +31,9 @@ class LoginScreen(Screen):
             # Criar uma instância da classe Database
             db = Database('astronomy.db')
 
-            # Checar as credencias no banco de dados
+            # Checar as credenciais no banco de dados
             if db.check_credentials(username, password):
-                    self.manager.current = 'suced'
+                self.manager.current = 'suced'
             db.conn.close()
         except ValueError:
             print('error')
@@ -58,36 +60,40 @@ class ConsultScreen(Screen):
 class ResultScreen(Screen):
     pass
 
-    def button_search(self):
-        
-        '''  # Obter a imagem do banco APOC
-        ano = self.ano
-        mes = self.mes
-        data = self.data 
-        
-        imagem = get(datas) # instanciando a classe
-        imagem.get(ano, mes, data) # capturar os dados da variáveis
-        self.manager.current = 'scraping' '''
-        self.manager.current = 'scraping'
-    
+class AnimationScreen(Screen):
+    def on_enter(self):
+        # Criando a imagem
+        image = Image(source='astronomy_kivy/saturn.png', size=(100, 100))
+
+        # Criando a animação
+        anim = Animation(x=100, y=100) + Animation(x=200, y=200)
+        anim.repeat = True  # Repetir a animação indefinidamente
+        anim.start(image)
+
+        # Criando o layout e adicionando a imagem
+        layout = FloatLayout()
+        layout.add_widget(image)
+
+        # Adicionando o layout à tela
+        self.add_widget(layout)
 
 sm = ScreenManager()
 
 # Adicionando as telas ao ScreenManager
-sm.add_widget(FirstScreen(name = 'init'))
-sm.add_widget(LoginScreen(name = 'login')) 
-sm.add_widget(RegisterScreen(name = 'register'))
-sm.add_widget(ResultScreen(name = 'suced')) 
-sm.add_widget(ConsultScreen(name = 'scraping'))
-
+sm.add_widget(FirstScreen(name='init'))
+sm.add_widget(LoginScreen(name='login')) 
+sm.add_widget(RegisterScreen(name='register'))
+sm.add_widget(ResultScreen(name='suced')) 
+sm.add_widget(ConsultScreen(name='scraping'))
+sm.add_widget(AnimationScreen(name='animation'))
 
 class HotReload(MDApp):
-    KV_FILES = ['astronomy_kivy/app/main.kv']
+    KV_FILES = ['astronomy_kivy/app/test.kv']
     DEBUG = True
 
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray'
-        return Builder.load_file('astronomy_kivy/app/main.kv')
+        return Builder.load_file('astronomy_kivy/app/test.kv')
         
 if __name__ == '__main__': 
     Window.size = (500, 800)

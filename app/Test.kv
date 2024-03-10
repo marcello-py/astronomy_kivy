@@ -8,9 +8,16 @@ ScreenManager:
 <FirstScreen>:
 
     name: 'init'
-    MDFloatLayout:   
+    MDFloatLayout:
+                  
         md_bg_color: '#212121'
         Image:
+            source: "logo/lua_crescente.png"
+            size_hint: .20, .20
+            pos_hint: {"center_x": .8, "center_y": .9}
+
+        Image:
+            id: logo_image
             source: "logo/cat.png"
             size_hint: .90, .70
             pos_hint: {"center_x": .50, "center_y": .6}

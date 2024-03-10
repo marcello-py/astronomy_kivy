@@ -8,9 +8,15 @@ ScreenManager:
 <FirstScreen>:
 
     name: 'init'
-    MDFloatLayout:   
+    MDFloatLayout:  
         md_bg_color: '#212121'
         Image:
+            source: "logo/lua_crescente.png"
+            size_hint: .20, .20
+            pos_hint: {"center_x": .8, "center_y": .9}
+        
+        Image:
+            id: logo_image
             source: "logo/cat.png"
             size_hint: .90, .70
             pos_hint: {"center_x": .50, "center_y": .6}
@@ -199,7 +205,7 @@ ScreenManager:
                     focus_color: 188/255, 227/255, 217/255, 1
                     elevation: 4
                     on_press: root.button_search()
- 
+
                     AsyncImage:
                         source: 'logo/search.png'
 
@@ -260,7 +266,7 @@ ScreenManager:
             spacing: "30dp"
 
             MDTextField:
-                id: ano_input
+                id: username_input
                 hint_text: "ANO"
                 hint_text_color: 'white'
                 icon_right: "calendar"
@@ -271,7 +277,7 @@ ScreenManager:
                 pos_hint: {"center_x": .5}
 
             MDTextField:
-                id: data_input
+                id: password_input
                 hint_text: "DATA"
                 hint_text_color: 'white'
                 icon_right: "calendar"
@@ -282,7 +288,7 @@ ScreenManager:
                 pos_hint: {"center_x": .5}
 
             MDTextField:
-                id: mes_input
+                id: password_input
                 hint_text: "MES"
                 hint_text_color: 'white'
                 icon_right: "calendar"
