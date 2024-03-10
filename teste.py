@@ -87,7 +87,7 @@ sm.add_widget(ResultScreen(name='suced'))
 sm.add_widget(ConsultScreen(name='scraping'))
 sm.add_widget(AnimationScreen(name='animation'))
 
-class HotReload(MDApp):
+class Test(MDApp):
     KV_FILES = ['astronomy_kivy/app/test.kv']
     DEBUG = True
 
@@ -97,4 +97,4 @@ class HotReload(MDApp):
         
 if __name__ == '__main__': 
     Window.size = (500, 800)
-    HotReload().run()
+    Test().run()
