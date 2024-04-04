@@ -21,7 +21,7 @@ class Database:
         self.cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', (username, password))
         self.conn.commit()
                       
-    def drop_table(self):
+    def drop_user(self):
         self.cursor.execute('DELETE FROM users WHERE id = 2')
         self.conn.commit()
 
@@ -39,7 +39,6 @@ class Database:
         # Execute uma consulta para selecionar todos os registros da tabela "users"
         self.cursor.execute('SELECT * FROM users')
         users = self.cursor.fetchall()
-
         # Imprima os resultados
         for user in users:
             print(user)
@@ -58,7 +57,7 @@ else:
 db.view_all_users()
 
 # Deletar dados especificos
-db.drop_table()
+db.drop_user()
 
 # Fechar a conexão com o banco de dados
 db.conn.close()

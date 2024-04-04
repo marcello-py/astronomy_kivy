@@ -15,10 +15,13 @@ class FirstScreen(Screen):
         Clock.schedule_once(self.setup_logo_animation, 0) #para agendar a execução da animação
 
     def setup_logo_animation(self, *args):
-        image = self.ids.logo_image
+        image_cat = self.ids.logo_image
+        image_moon = self.ids.logo_moon
+        anim_moon = Animation(size_hint=(.40, .40), duration=1) + Animation(size_hint=(.20, .20), duration=1)
         anim = Animation(size_hint=(.40, .40), duration=1) + Animation(size_hint=(.70, .70), duration=1)
         #anim.repeat = True
-        anim.start(image)
+        anim.start(image_cat)
+        anim_moon.start(image_moon)
 
 
 class LoginScreen(Screen):
@@ -85,7 +88,7 @@ sm.add_widget(LoginScreen(name='login'))
 sm.add_widget(RegisterScreen(name='register'))
 sm.add_widget(ResultScreen(name='suced')) 
 sm.add_widget(ConsultScreen(name='scraping'))
-sm.add_widget(AnimationScreen(name='animation'))
+
 
 class Main(MDApp):
     KV_FILES = ['astronomy_kivy/app/main.kv']

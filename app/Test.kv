@@ -3,15 +3,14 @@ ScreenManager:
     LoginScreen:
     RegisterScreen:
     ResultScreen:
-    ConsultScreen:
+    CardConsultScreen:
 
 <FirstScreen>:
-
     name: 'init'
     MDFloatLayout:
-                  
-        md_bg_color: '#212121'
+        md_bg_color: '#222725'
         Image:
+            id: logo_moon
             source: "logo/lua_crescente.png"
             size_hint: .20, .20
             pos_hint: {"center_x": .8, "center_y": .9}
@@ -67,65 +66,60 @@ ScreenManager:
 <LoginScreen>:
     name: 'login'
     MDFloatLayout:
-        md_bg_color: '#3C3A3A'
-#        Image:
-#            source: "logo/marca_dagua.png"
-#            size_hint: .50, .50
-#            pos_hint: {"center_x": .5, "center_y": .6}
-#            keep_ratio: False
+        md_bg_color: '#222725'
+
         Image:
             source: "logo/saturn.png"
             size_hint: 20, 20
             pos_hint: {"center_x": .7, "center_y": .9}
             keep_ratio: False
 
-        BoxLayout:
-            orientation: "vertical"
-            padding: "20dp"
-            spacing: "30dp"
+        MDTextField:
+            id: username_input
+            mode: "rectangle"
+            hint_text: "Name"
+            hint_text_color: 'white'
+            text_color_focus: 'white'
+            line_color_normal: "#D0CECE"
+            icon_right: "account"
+            width: "300dp"
+            max_text_length: 30
+            size_hint_x: .8
+            pos_hint: {"center_x": .5,"center_y": .4}
 
-            MDTextField:
-                id: username_input
-                hint_text: "Name"
-                hint_text_color: 'black'
-                icon_right: "account"
-                line_color_normal: "#FFFFFF"
-                width: "300dp"
-                max_text_length: 30
-                size_hint_x: .8
-                pos_hint: {"center_x": .5}
+        MDTextField:
+            id: password_input
+            mode: "rectangle"
+            hint_text: "Password"
+            text_color_focus: 'white'
+            icon_right: "lock"
+            line_color_normal: "#D0CECE"
+            width: "300dp"
+            max_text_length: 30
+            password: True
+            size_hint_x: .8
+            pos_hint: {"center_x": .5,"center_y": .3}
 
-            MDTextField:
-                id: password_input
-                hint_text: "Password"
-                icon_right: "lock"
-                line_color_normal: "#D0CECE"
-                width: "300dp"
-                max_text_length: 30
-                password: True
-                size_hint_x: .8
-                pos_hint: {"center_x": .5}
+        MDRoundFlatButton:
+            text: "acess"
+            font_name: "Poppin-Regular.ttf"
+            text_color: "white"
+            pos_hint: {"center_x": .5, "center_y": .2}
+            size_hint_x: .8
+            md_bg_color: "424247"
+            on_press: root.login_user()
 
-            MDRoundFlatButton:
-                text: "acess"
-                font_name: "Poppin-Regular.ttf"
-                text_color: "white"
-                size_hint_x: .8
-                pos_hint: {"center_x": .5}
-                md_bg_color: "424247"
-                on_press: root.login_user()
-
-        MDIconButton:
-            icon: "chevron-left"     
-            icon_size: "30sp"     
-            on_press: root.manager.current = 'init'
-            md_bg_color: '#525151'
-            pos_hint: {"center_y": .90}
+    MDIconButton:
+        icon: "chevron-left"     
+        icon_size: "40sp"     
+        on_press: root.manager.current = 'init'
+        md_bg_color: '#222725'
+        pos_hint: {"center_y": .9}
 
 <RegisterScreen>:
     name: 'register'
     MDFloatLayout:        
-        md_bg_color: '#525151'
+        md_bg_color: '#222725'
         Image:
             source: "logo/lua_crescente.png"
             size_hint: .30, .30
@@ -175,13 +169,13 @@ ScreenManager:
             icon: "chevron-left"     
             icon_size: "30sp"     
             on_press: root.manager.current = 'init'
-            md_bg_color: '#525151'
+            md_bg_color: '#222725'
             pos_hint: {"center_y": .9}
 
 <ResultScreen>:
     name: 'suced'
     MDBoxLayout:
-        md_bg_color: '#525151'
+        md_bg_color: '#222725'
         orientation: 'vertical'
 
         MDBoxLayout:
@@ -217,7 +211,8 @@ ScreenManager:
                     pos_hint: {"center_x": 20, "center_y": .5}
                     #unfocus_color: "grey"
                     focus_color: 188/255, 227/255, 217/255, 1
-                    elevation: 4
+                    elevation: 
+                    on_press: root.button_profile()
 
                     AsyncImage:
                         source: 'logo/profile.png'
@@ -240,25 +235,21 @@ ScreenManager:
                     #unfocus_color: "grey"
                     focus_color: 188/255, 227/255, 217/255, 1
                     elevation: 4
-                    #on_press: root.close_app()
+                    on_press: root.manager.current = 'init'
 
                     AsyncImage:
                         source: 'logo/logout.png' 
 
-<ConsultScreen>:
+<CardConsultScreen>:
     name:'scraping'
     MDFloatLayout:   
         md_bg_color: '#544e4e'
-#        Image:
-#            source: "logo/cat.png"
-#            size_hint: .90, .70
-#            pos_hint: {"center_x": .50, "center_y": .6}
-#            keep_ratio: False 
+
         MDIconButton:
             icon: "chevron-left"     
             icon_size: "30sp"     
             on_press: root.manager.current = 'suced'
-            md_bg_color: '#525151'
+            md_bg_color: '#222725'
             pos_hint: {"center_y": .9} 
 
         BoxLayout:
@@ -311,6 +302,8 @@ ScreenManager:
         MDIconButton:
             icon: "chevron-left"     
             icon_size: "30sp"     
-            on_press: root.manager.current = 'init'
-            md_bg_color: '#525151'
+            on_press: root.manager.current = 'suced'
+            md_bg_color: '#222725'
             pos_hint: {"center_y": .90}
+
+

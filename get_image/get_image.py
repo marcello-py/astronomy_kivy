@@ -39,11 +39,3 @@ if imagem is not None:
     print(f"Arquivo {datas} encontrado!")
 else:
     print("Arquivo não encontrado.")
-<<<<<<< HEAD
-    
-=======
->>>>>>> 3a2f8362f57939935eb1d576db0283b19f78321e
-
-
-def casa(self):
-    pass

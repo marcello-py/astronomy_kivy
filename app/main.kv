@@ -3,7 +3,7 @@ ScreenManager:
     LoginScreen:
     RegisterScreen:
     ResultScreen:
-    ConsultScreen:
+    CardConsultScreen:
 
 <FirstScreen>:
 
@@ -11,6 +11,7 @@ ScreenManager:
     MDFloatLayout:
         md_bg_color: '#212121'
         Image:
+            id: logo_moon
             source: "logo/lua_crescente.png"
             size_hint: .20, .20
             pos_hint: {"center_x": .8, "center_y": .9}
@@ -244,7 +245,7 @@ ScreenManager:
                     AsyncImage:
                         source: 'logo/logout.png' 
 
-<ConsultScreen>:
+<CardConsultScreen>:
     name:'scraping'
     MDFloatLayout:   
         md_bg_color: '#544e4e'
