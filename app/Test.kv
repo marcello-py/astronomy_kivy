@@ -4,6 +4,7 @@ ScreenManager:
     RegisterScreen:
     ResultScreen:
     CardConsultScreen:
+    CardOptiontScreen:
 
 <FirstScreen>:
     name: 'init'
@@ -31,7 +32,7 @@ ScreenManager:
             halign: "center"
             font_name: "Poppin-Regular.ttf"            
 
-        MDLabel:
+        MDLabel: 
             text: "make  login  or  register"
             theme_text_color: "Custom"
             text_color: "#FFFFFF"
@@ -108,6 +109,10 @@ ScreenManager:
             size_hint_x: .8
             md_bg_color: "424247"
             on_press: root.login_user()
+
+        MDLabel:
+            pos_hint: {"center_x": .8, "center_y": .1}
+            id:error_label
 
     MDIconButton:
         icon: "chevron-left"     
@@ -199,7 +204,7 @@ ScreenManager:
                     #unfocus_color: "grey"
                     focus_color: 188/255, 227/255, 217/255, 1
                     elevation: 4
-                    on_press: root.button_search()
+                    on_press: root.view_all_users()
 
                     AsyncImage:
                         source: 'logo/search.png'
@@ -307,3 +312,25 @@ ScreenManager:
             pos_hint: {"center_y": .90}
 
 
+<CardOptiontScreen>:
+    name:'option'
+    MDFloatLayout:   
+        md_bg_color: '#544e4e'
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'suced'
+            md_bg_color: '#222725'
+            pos_hint: {"center_y": .9} 
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
+
+            MDLabel:
+                text: 'NAME'     
+                id: username
+                font_size: "14sp"
+                pos_hint: {"center_x": .5, "center_y": 3.3} 

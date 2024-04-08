@@ -43,7 +43,19 @@ class Database:
         for user in users:
             print(user)
 
-# Criar uma instância da classe Database
+    def view_user(self):
+        self.cursor.execute('SELECT username FROM users')
+        users = self.cursor.fetchall()
+        for user in users:
+            print(user)
+
+    def view_id(self):
+        self.cursor.execute('SELECT id FROM users')
+        users = self.cursor.fetchall()
+        for user in users:
+            print(user)
+
+        # Criar uma instância da classe Database
 db = Database('astronomy.db')
 
 

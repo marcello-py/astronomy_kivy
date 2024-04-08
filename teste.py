@@ -7,6 +7,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.clock import Clock
 from database import Database
+from kivymd.uix.list import ThreeLineListItem
 #from get_image import Image
 #from scraping import Scraping
 
@@ -37,9 +38,19 @@ class LoginScreen(Screen):
             # Checar as credenciais no banco de dados
             if db.check_credentials(username, password):
                 self.manager.current = 'suced'
+            else:
+                self.ids.error_label.text = 'Usuário ou senha incorreto!'
+                Clock.schedule_once(self.clear_error_message, 3)  
+
+        except Exception as e:
+            print(f'Erro ao fazer login: {e}')
+        finally:
             db.conn.close()
-        except ValueError:
-            print('error')
+
+    def clear_error_message(self, dt):
+        self.ids.error_label.text = '' 
+
+
 
 class RegisterScreen(Screen):
     def register_user(self):
@@ -70,9 +81,12 @@ class ResultScreen(Screen):
 
     def button_profile(self):
         db = Database('astronomy.db')
-        db.view_all_users()
-
+        db.view_all_users()  # Recupera os usuários do banco de dados
+        self.manager.current = 'option'
 class CardConsultScreen(Screen):
+    pass
+
+class CardOptiontScreen(Screen):
     pass
 
 sm = ScreenManager()
@@ -83,11 +97,12 @@ sm.add_widget(LoginScreen(name='login'))
 sm.add_widget(RegisterScreen(name='register'))
 sm.add_widget(ResultScreen(name='suced')) 
 sm.add_widget(CardConsultScreen(name='scraping'))
+sm.add_widget(CardOptiontScreen(name='option'))
 
 class Test(MDApp):
     KV_FILES = ['astronomy_kivy/app/test.kv']
     DEBUG = True
-    
+
 
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray' 
