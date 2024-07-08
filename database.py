@@ -39,15 +39,16 @@ class Database:
         # Execute uma consulta para selecionar todos os registros da tabela "users"
         self.cursor.execute('SELECT * FROM users')
         users = self.cursor.fetchall()
-        # Imprima os resultados
         for user in users:
             print(user)
+        
 
     def view_user(self):
         self.cursor.execute('SELECT username FROM users')
         users = self.cursor.fetchall()
         for user in users:
             print(user)
+        
 
     def view_id(self):
         self.cursor.execute('SELECT id FROM users')

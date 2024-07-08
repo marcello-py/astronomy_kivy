@@ -3,18 +3,19 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from kivy.animation import Animation
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.image import Image
 from kivy.clock import Clock
 from database import Database
-from kivymd.uix.list import ThreeLineListItem
+#from kivy.uix.image import Image
+#from kivy.uix.floatlayout import FloatLayout
+#from kivymd.uix.list import ThreeLineListItem
 #from get_image import Image
 #from scraping import Scraping
 
 class FirstScreen(Screen):
-    def on_enter(self, *args):
-        super().on_enter(*args)
-        Clock.schedule_once(self.setup_logo_animation, 0) #para agendar a execução da animação
+    # Para agendar a execução da animação
+#    def on_enter(self, *args):
+#        super().on_enter(*args)
+#        Clock.schedule_once(self.setup_logo_animation, 0) 
 
     def setup_logo_animation(self, *args):
         image_cat = self.ids.logo_image
@@ -28,13 +29,16 @@ class FirstScreen(Screen):
 
 
 class LoginScreen(Screen):
+    """Checar o usuário e senha e concede o login."""
     def login_user(self):
         try:
             # Coletar os valores de entrada
             username = self.ids.username_input.text
             password = self.ids.password_input.text
+
             # Criar uma instância da classe Database
             db = Database('astronomy.db')
+
             # Checar as credenciais no banco de dados
             if db.check_credentials(username, password):
                 self.manager.current = 'suced'
@@ -53,22 +57,27 @@ class LoginScreen(Screen):
 
 
 class RegisterScreen(Screen):
+    """Registra um novo usuário no banco de dados."""
     def register_user(self):
         # Coletar os valores de entrada
         username = self.ids.username_input.text
         password = self.ids.password_input.text
+
         # Criar uma instância da classe Database
         db = Database('astronomy.db') 
+
         # Inserir o usuário no banco de dados
-        db.insert_user(username, password) 
+        db.insert_user(username, password)
+
+        #Define a tela a próxima tela com o 'suced'
         self.manager.current = 'suced' 
+
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
-
 class ResultScreen(Screen):
+    """Seleciona com base nos parâmetros recebidos a imagem no banco de dados"""
     def button_search(self):
-        
         '''  # Obter a imagem do banco APOC
         ano = self.ano
         mes = self.mes
@@ -78,11 +87,15 @@ class ResultScreen(Screen):
         imagem.get(ano, mes, data) # capturar os dados da variáveis
         self.manager.current = 'scraping' '''
         self.manager.current = 'scraping'
-
-    def button_profile(self):
+    
+    def view_all_users(self):
         db = Database('astronomy.db')
-        db.view_all_users()  # Recupera os usuários do banco de dados
+        db.view_all_users()
         self.manager.current = 'option'
+        
+    def button_settings(self):
+        self.manager.current = 'option'
+
 class CardConsultScreen(Screen):
     pass
 
@@ -102,7 +115,6 @@ sm.add_widget(CardOptiontScreen(name='option'))
 class Test(MDApp):
     KV_FILES = ['astronomy_kivy/app/test.kv']
     DEBUG = True
-
 
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray' 
