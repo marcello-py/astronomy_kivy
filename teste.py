@@ -113,12 +113,12 @@ sm.add_widget(CardConsultScreen(name='scraping'))
 sm.add_widget(CardOptiontScreen(name='option'))
 
 class Test(MDApp):
-    KV_FILES = ['astronomy_kivy/app/test.kv']
+    KV_FILES = [r'app\__pycache__\test.kv']
     DEBUG = True
 
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray' 
-        return Builder.load_file('astronomy_kivy/app/test.kv')
+        return Builder.load_file(r'app\__pycache__\test.kv')
         
 if __name__ == '__main__': 
     Window.size = (500, 800)
