@@ -6,6 +6,7 @@ from kivy.animation import Animation
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
 from kivy.clock import Clock
+
 from database import Database
 #from scraping import Scraping
 
