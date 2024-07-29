@@ -218,7 +218,7 @@ ScreenManager:
                     focus_color: 188/255, 227/255, 217/255, 1
                     elevation: 
                     on_press: root.view_all_users()
-
+                    #data: [{'name': str(row[1]), 'password': str(row[2]), 'id': row[0]} for row in root.users]
                     AsyncImage:
                         source: 'logo/profile.png'
 
