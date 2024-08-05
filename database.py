@@ -35,28 +35,20 @@ class Database:
         else:
             return False
 
+    def get_all_users(self):
+        self.cursor.execute('SELECT * FROM users')
+        return self.cursor.fetchall()
+    
+    
     def view_all_users(self):
         # Execute uma consulta para selecionar todos os registros da tabela "users"
         self.cursor.execute('SELECT * FROM users')
         users = self.cursor.fetchall()
         for user in users:
             print(user)
-        
 
-    def view_user(self):
-        self.cursor.execute('SELECT username FROM users')
-        users = self.cursor.fetchall()
-        for user in users:
-            print(user)
-        
 
-    def view_id(self):
-        self.cursor.execute('SELECT id FROM users')
-        users = self.cursor.fetchall()
-        for user in users:
-            print(user)
-
-        # Criar uma instância da classe Database
+ # Criar uma instância da classe Database
 db = Database('astronomy.db')
 
 

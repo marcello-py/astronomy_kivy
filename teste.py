@@ -13,9 +13,9 @@ from database import Database
 
 class FirstScreen(Screen):
     # Para agendar a execução da animação
-#    def on_enter(self, *args):
-#        super().on_enter(*args)
-#        Clock.schedule_once(self.setup_logo_animation, 0) 
+    def on_enter(self, *args):
+        super().on_enter(*args)
+        Clock.schedule_once(self.setup_logo_animation, 0) 
 
     def setup_logo_animation(self, *args):
         image_cat = self.ids.logo_image
@@ -88,18 +88,26 @@ class ResultScreen(Screen):
         self.manager.current = 'scraping' '''
         self.manager.current = 'scraping'
     
-    def view_all_users(self):
-        db = Database('astronomy.db')
-        db.view_all_users()
-        self.manager.current = 'option'
+    def button_settings(self):
+        pass
         
+    def button_profile(self):
+        self.manager.current = 'profile'
+
+class CardOptiontScreen(Screen):
+    pass
+
+class CardConsultScreen(Screen):
+#    def update_user_list(self, users):
+#        user_list = self.ids.user_list
+#        user_list.clear_widgets()
+#        for user in users:
+#            user_label = MDLabel(text=user[1])
+#            user_list.add_widget(user_label)
     def button_settings(self):
         self.manager.current = 'option'
 
-class CardConsultScreen(Screen):
-    pass
-
-class CardOptiontScreen(Screen):
+class CardProfiletScreen(Screen):
     pass
 
 sm = ScreenManager()
@@ -110,7 +118,10 @@ sm.add_widget(LoginScreen(name='login'))
 sm.add_widget(RegisterScreen(name='register'))
 sm.add_widget(ResultScreen(name='suced')) 
 sm.add_widget(CardConsultScreen(name='scraping'))
-sm.add_widget(CardOptiontScreen(name='option'))
+sm.add_widget(CardProfiletScreen(name='profile'))
+
+
+
 
 class Test(MDApp):
     KV_FILES = [r'app\__pycache__\test.kv']

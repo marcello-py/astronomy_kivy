@@ -57,11 +57,12 @@ class RegisterScreen(Screen):
         # Fechar a conexão com o banco de dados
         db.conn.close()
 
-class ConsultScreen(Screen):
+class CardConsultScreen(Screen):
     pass 
 
 class ResultScreen(Screen):
-    pass
+    def button_search(self):
+        self.manager.current = 'scraping'
 
 class AnimationScreen(Screen):
     def on_enter(self):
@@ -87,16 +88,17 @@ sm.add_widget(FirstScreen(name='init'))
 sm.add_widget(LoginScreen(name='login')) 
 sm.add_widget(RegisterScreen(name='register'))
 sm.add_widget(ResultScreen(name='suced')) 
-sm.add_widget(ConsultScreen(name='scraping'))
+sm.add_widget(CardConsultScreen(name='scraping'))
+
 
 
 class Main(MDApp):
-    KV_FILES = ['astronomy_kivy/app/main.kv']
+    KV_FILES = [r'app\__pycache__\main.kv']
     DEBUG = True
 
     def build_app(self):    
         self.theme_cls.primary_palette = 'Gray'
-        return Builder.load_file('astronomy_kivy/app/main.kv')
+        return Builder.load_file(r'app\__pycache__\main.kv')
         
 if __name__ == '__main__': 
     Window.size = (500, 800)
