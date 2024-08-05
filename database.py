@@ -44,8 +44,14 @@ class Database:
         # Execute uma consulta para selecionar todos os registros da tabela "users"
         self.cursor.execute('SELECT * FROM users')
         users = self.cursor.fetchall()
+<<<<<<< HEAD
         for user in users:
             print(user)
+=======
+        #for user in users:
+        #    print(user)
+        return users
+>>>>>>> 617800b948ab3c5ed05a4f8f960b7cbc804e4293
 
 
  # Criar uma instância da classe Database
