@@ -1,0 +1,258 @@
+ScreenManager:
+    FirstScreen:
+    LoginScreen:
+    RegisterScreen:
+    ResultScreen:
+    ScrapingScreen:
+
+<FirstScreen>:
+
+    name: 'init'
+    MDFloatLayout:   
+        md_bg_color: '#212121'
+        Image:
+            source: "image/cat.png"
+            size_hint: .90, .70
+            pos_hint: {"center_x": .50, "center_y": .6}
+            keep_ratio: False
+
+        MDLabel:
+            text: "A s t r o n o m y"
+            theme_text_color: "Custom"
+            text_color: "#FFFFFF"
+            font_size: "35sp"
+            pos_hint: {"center_x": .5, "center_y": .30} 
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"            
+
+        MDLabel:
+            text: "make  login  or  register"
+            theme_text_color: "Custom"
+            text_color: "#FFFFFF"
+            font_size: "15sp"
+            pos_hint: {"center_x": .5, "center_y": .25}
+            halign: "center"
+            font_name: "Poppin-Regular.ttf"            
+
+        MDRoundFlatButton:
+            text: "LOGIN"
+            size_hint: 0.4, 0.0
+            text_color:  "#FFFFFF"
+            md_bg_color: "424247"
+            font_size: "25sp"
+            pos_hint: {"center_x": .5, "center_y": .17}
+            line_color_normal: 1, 0, 0, 1
+            line_color_down: 0, 1, 0, 1 
+            on_press: root.manager.current = 'login'
+            font_name: "Poppin-Regular.ttf"
+
+        MDRoundFlatButton:
+            text: "S I G N   U P"
+            size_hint: 0.4, 0.0
+            text_color: "#FFFFFF"
+            md_bg_color: "424247"
+            font_size: "25sp"
+            pos_hint: {"center_x": .5, "center_y": .1}
+            halign: "center"
+            on_press: root.manager.current = 'register'
+            font_name: "Poppin-Regular.ttf" 
+
+<LoginScreen>:
+    name: 'login'
+    MDFloatLayout:
+        md_bg_color: '#3C3A3A'
+        Image:
+            source: "image/marca_dagua.png"
+            size_hint: .50, .50
+            pos_hint: {"center_x": .5, "center_y": .6}
+            keep_ratio: False
+        Image:
+            source: "image/saturn.png"
+            size_hint: 20, 20
+            pos_hint: {"center_x": .7, "center_y": .9}
+            keep_ratio: False
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
+
+            MDTextField:
+                id: username_input
+                hint_text: "Name"
+                hint_text_color: 'black'
+                icon_right: "account"
+                line_color_normal: "#FFFFFF"
+                width: "300dp"
+                max_text_length: 30
+#               mode: "rectangle"
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+
+            MDTextField:
+                id: password_input
+                hint_text: "Password"
+                icon_right: "lock"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+#               mode: "rectangle"
+                password: True
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+
+            MDRoundFlatButton:
+                text: "acess"
+                font_name: "Poppin-Regular.ttf"
+                text_color: "white"
+                size_hint_x: .8
+                pos_hint: {"center_x": .5}
+                md_bg_color: "424247"
+                on_press: root.login_user()
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .90}
+
+<RegisterScreen>:
+    name: 'register'
+    MDFloatLayout:        
+        md_bg_color: '#525151'
+        Image:
+            source: "image/lua_crescente.png"
+            size_hint: .30, .30
+            pos_hint: {"center_x": .8, "center_y": .9}
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "30dp"
+            image:
+            source:'marca_dagua.png'
+
+            MDTextField:
+                id: username_input
+                hint_text: "Name"
+                hint_text_color: 'black'
+                icon_right: "account"
+                line_color_normal: "#FFFFFF"
+                width: "300dp"
+                max_text_length: 30
+#                mode: "rectangle"
+                size_hint_x: .9
+                pos_hint: {"center_x": .5} 
+
+            MDTextField:
+                id: password_input
+                hint_text: "Password"
+                icon_right: "lock"
+                line_color_normal: "#D0CECE"
+                width: "300dp"
+                max_text_length: 30
+#                mode: "rectangle"
+                password: True
+                size_hint_x: .9
+                pos_hint: {"center_x": .5}
+
+            MDRoundFlatButton:
+                text: "register"
+                font_name: "Poppin-Regular.ttf"
+                text_color: "white"
+                size_hint_x: .9
+                pos_hint: {"center_x": .5}
+                md_bg_color: "424247"
+                on_press: root.register_user()
+
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'init'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .9}
+
+<ResultScreen>:
+    name: 'suced'
+    MDBoxLayout:
+        md_bg_color: '#525151'
+        orientation: 'vertical'
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                text: 'TESTE'
+                font_name: "Poppin-Regular.ttf"
+                font_size: '40dp'
+                pos_hint: {"center_x": .9}
+                    
+            
+            GridLayout:
+                size_hint_y:.60
+                cols:2
+                padding:[dp(15),dp(15),dp(15),dp(15)]
+                spacing:dp(15)
+                    
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    #unfocus_color: "grey"
+                    focus_color: 188/255, 227/255, 217/255, 1
+                    elevation: 4
+                    on_press: root.button_search()
+
+                    AsyncImage:
+                        source: 'image/search.png'
+
+
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": 20, "center_y": .5}
+                    #unfocus_color: "grey"
+                    focus_color: 188/255, 227/255, 217/255, 1
+                    elevation: 4
+
+                    AsyncImage:
+                        source: 'image/profile.png'
+
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    #unfocus_color: "grey"
+                    focus_color: 188/255, 227/255, 217/255, 1
+                    elevation: 4
+
+                    AsyncImage:
+                        source: 'image/settings.png'
+
+                MDCard:
+                    size_hint_x: 100
+                    focus_behavior: True
+                    pos_hint: {"center_x": 10, "center_y": .5}
+                    #unfocus_color: "grey"
+                    focus_color: 188/255, 227/255, 217/255, 1
+                    elevation: 4
+                    #on_press: root.close_app()
+
+                    AsyncImage:
+                        source: 'image/logout.png' 
+
+<ScrapingScreen>:
+    name:'scraping'
+    MDFloatLayout:   
+        md_bg_color: '#212121'
+        Image:
+            source: "image/cat.png"
+            size_hint: .90, .70
+            pos_hint: {"center_x": .50, "center_y": .6}
+            keep_ratio: False 
+        MDIconButton:
+            icon: "chevron-left"     
+            icon_size: "30sp"     
+            on_press: root.manager.current = 'suced'
+            md_bg_color: '#525151'
+            pos_hint: {"center_y": .9}
